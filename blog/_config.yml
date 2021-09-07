@@ -112,4 +112,4 @@ feed:
 deploy:
   type: "git"
   repo: "https://github.com/LiuIos/LiuIos.github.io.git"
-  branch: main
+  branch: gh-pages
