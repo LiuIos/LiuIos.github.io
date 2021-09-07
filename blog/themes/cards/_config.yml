@@ -70,7 +70,7 @@ cover:
   avatar: https://cdn.jsdelivr.net/gh/LiuIos/picBed/20210906172600.png
 
   # sitename/avatar 下方的一句话介绍
-  description: 个人博客
+  description: 笔记 🌈 ｜ 随笔 🌟 ｜ 技术 🚀
 
 # ---------------------------------------------------------------
 # 样式自定义
@@ -191,19 +191,19 @@ comments:
   valine:
     appId: ODBJnxOXlHO3QooAbKpprTQF-gzGzoHsz
     appKey: l0E6n9ofbixyqyFBJUajeFU0
-    placeholder:
+    placeholder: "抢沙发～"
     path:
-    avatar:
+    avatar: "robohash"
     meta: [nick, mail, link]
     pageSize:
-    lang:
-    visitor:
-    highlight:
+    lang: "zh-CN"
+    visitor: true
+    highlight: true
     avatarForce:
     recordIP:
     serverURLs:
     enableQQ:
-    requiredFields: [nick, mail]
+    requiredFields: []
     emojiCDN:
     emojiMaps:
 

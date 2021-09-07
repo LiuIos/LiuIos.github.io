@@ -1,9 +1,9 @@
 ---
-title:
-  - react-native-webview禁止缩放和自适应高度
+title: react-native-webview禁止缩放和自适应高度
 date: 2021-09-07 16:04:33
 tags: react-native
 categories: 技术
+thumbnail: https://cdn.jsdelivr.net/gh/LiuIos/picBed/20210907161428.png
 ---
 
 ```js
@@ -22,9 +22,9 @@ const BaseScript = `
           }
         }
         setTimeout(changeHeight, 100);
-        const meta = document.createElement('meta'); 
-        meta.setAttribute('content', 'initial-scale=1, maximum-scale=1, user-scalable=0'); 
-        meta.setAttribute('name', 'viewport'); 
+        const meta = document.createElement('meta');
+        meta.setAttribute('content', 'initial-scale=1, maximum-scale=1, user-scalable=0');
+        meta.setAttribute('name', 'viewport');
         document.getElementsByTagName('head')[0].appendChild(meta);
     } ())
     `;
@@ -47,7 +47,6 @@ const BaseScript = `
       console.log('====================================');
     }
   }
-<WebView ref={e => (this.webView = e)} 
+<WebView ref={e => (this.webView = e)}
 injectedJavaScript={BaseScript}/>
 ```
-
