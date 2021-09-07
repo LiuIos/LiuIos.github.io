@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+        <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/LiuIos/picBed/%E4%B9%A6%E7%B1%8D.png">
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>yarn的常用命令 | 宝生的博客</title>
+
+
+    <meta name="keywords" content="yarn, Blog,Hexo,Theme,刘宝生,LiuIos">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="yarn 安装npm i yarn -g 查看版本yarn -v 新建package.jsonyarn init 添加依赖通过 yarn add 添加依赖会更新 package.json 以及 yarn.lock 文件 1.开发环境12345yarn add &lt;packageName&gt; 依赖会记录在 package.json 的 dependencies 下 开发环境yarn add">
+<meta property="og:type" content="article">
+<meta property="og:title" content="yarn的常用命令">
+<meta property="og:url" content="https://liuios.github.io/2021/09/07/yarn%E7%9A%84%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:site_name" content="宝生的博客">
+<meta property="og:description" content="yarn 安装npm i yarn -g 查看版本yarn -v 新建package.jsonyarn init 添加依赖通过 yarn add 添加依赖会更新 package.json 以及 yarn.lock 文件 1.开发环境12345yarn add &lt;packageName&gt; 依赖会记录在 package.json 的 dependencies 下 开发环境yarn add">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LiuIos/picBed/20210907172943.png">
+<meta property="article:published_time" content="2021-09-07T09:27:54.000Z">
+<meta property="article:modified_time" content="2021-09-07T09:47:56.746Z">
+<meta property="article:author" content="刘宝生">
+<meta property="article:tag" content="yarn">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/LiuIos/picBed/20210907172943.png">
+
+
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="/css/highlight/default.css" media="none" >
+        
+            <link rel="stylesheet" id="hl-dark-theme" href="/css/highlight/dark.css" media="none">
+        
+    
+
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/style/dark.css">
+
+    
+<script src="/js/darkmode.js"></script>
+
+
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="宝生的博客" type="application/atom+xml">
+</head>
+
+    <body>
+        <div id="app">
+            <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">宝生的博客</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/" class="navbar-menu button">首页</a>
+                
+                    <a href="/tags/" class="navbar-menu button">标签</a>
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a href="/friends/" class="navbar-menu button">友链</a>
+                
+                    <a href="/atom.xml" class="navbar-menu button">RSS</a>
+                
+            </div>
+        
+        
+        
+    <a href="/search/" id="btn-search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="32"><path d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z"></path></svg>
+    </a>
+
+
+        
+        
+    <a href="javaScript:void(0);" id="btn-toggle-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </a>
+
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/" class="dropdown-menu button">首页</a>
+                
+                    <a href="/tags/" class="dropdown-menu button">标签</a>
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a href="/friends/" class="dropdown-menu button">友链</a>
+                
+                    <a href="/atom.xml" class="dropdown-menu button">RSS</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        yarn的常用命令
+    </h1>
+    <div class="post-title__meta">
+        <a href="/archives/2021/09/" class="post-meta__date button">2021-09-07</a>
+        
+    <span class="separate-dot"></span><a href="/categories/%E6%8A%80%E6%9C%AF/" class="button">技术</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+
+<article class="post content-card">
+    <div class="post__header">
+    
+        <div class="post-thumbnail" style="background-image: url('https://cdn.jsdelivr.net/gh/LiuIos/picBed/20210907172943.png');"></div>
+    
+</div>
+    <div class="post__content">
+        <h4 id="yarn-安装"><a href="#yarn-安装" class="headerlink" title="yarn 安装"></a>yarn 安装</h4><p><code>npm i yarn -g</code></p>
+<h4 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h4><p><code>yarn -v</code></p>
+<h4 id="新建package-json"><a href="#新建package-json" class="headerlink" title="新建package.json"></a>新建package.json</h4><p><code>yarn init</code></p>
+<h4 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h4><p>通过 <code>yarn add</code> 添加依赖会更新 package.json 以及 yarn.lock 文件</p>
+<h5 id="1-开发环境"><a href="#1-开发环境" class="headerlink" title="1.开发环境"></a>1.开发环境</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yarn add &lt;packageName&gt; 依赖会记录在 package.json 的 dependencies 下 开发环境</span><br><span class="line"></span><br><span class="line">yarn add webpack@2.5 # yarn --save 是 yarn 默认的，默认记录在 package.json 中</span><br><span class="line"></span><br><span class="line">npm install webpack --save # npm</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-生产环境"><a href="#2-生产环境" class="headerlink" title="2.生产环境"></a>2.生产环境</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yarn add &lt;packageName&gt; --dev 依赖会记录在 package.json 的 devDependencies 下 生产环境</span><br><span class="line"></span><br><span class="line">yarn add webpack --dev # yarn 简写 -D</span><br><span class="line"></span><br><span class="line">npm install webpack --save-dev # npm</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-全局"><a href="#3-全局" class="headerlink" title="3.全局"></a>3.全局</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yarn global add &lt;packageName&gt; 全局安装依赖</span><br><span class="line"></span><br><span class="line">yarn global add webpack # yarn</span><br><span class="line"></span><br><span class="line">npm install webpack -g # npm</span><br></pre></td></tr></table></figure>
+
+<h4 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">yarn upgrade 用于更新包到基于规范范围的最新版本</span><br><span class="line"></span><br><span class="line">yarn upgrade # 升级所有依赖项，不记录在 package.json 中</span><br><span class="line"></span><br><span class="line">npm update # npm 可以通过 ‘--save|--save-dev’ 指定升级哪类依赖</span><br><span class="line"></span><br><span class="line">yarn upgrade webpack # 升级指定包</span><br><span class="line"></span><br><span class="line">npm update webpack --save-dev # npm</span><br><span class="line"></span><br><span class="line">yarn upgrade --latest # 忽略版本规则，升级到最新版本，并且更新 package.json</span><br></pre></td></tr></table></figure>
+
+<h4 id="移除"><a href="#移除" class="headerlink" title="移除"></a>移除</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yarn remove &lt;packageName&gt;</span><br><span class="line"></span><br><span class="line">yarn remove webpack # yarn</span><br><span class="line"></span><br><span class="line">npm uninstall webpack --save # npm 可以指定 --save | --save-dev</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">yarn 或者 yarn install</span><br><span class="line"></span><br><span class="line">yarn install # 或者 yarn 在 node_modules 目录安装 package.json 中列出的所有依赖</span><br><span class="line"></span><br><span class="line">npm install # npm</span><br><span class="line"></span><br><span class="line">yarn install 安装时，如果 node_modules 中有相应的包则不会重新下载 --force 可以强制重新下载安装</span><br><span class="line"></span><br><span class="line">yarn install --force # 强制下载安装</span><br><span class="line"></span><br><span class="line">npm install --force # npm</span><br></pre></td></tr></table></figure>
+
+<h4 id="运行脚本"><a href="#运行脚本" class="headerlink" title="运行脚本"></a>运行脚本</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">yarn run 用来执行在 package.json 中 scripts 属性下定义的脚本</span><br><span class="line"></span><br><span class="line">// package.json</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  &quot;scripts&quot;: &#123;</span><br><span class="line">  &quot;dev&quot;: &quot;node app.js&quot;,</span><br><span class="line">  &quot;start&quot;: &quot;node app.js&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">yarn run dev # yarn 执行 dev 对应的脚本 node app.js</span><br><span class="line"></span><br><span class="line">npm run # npm</span><br><span class="line"></span><br><span class="line">yarn start # yarn</span><br><span class="line"></span><br><span class="line">npm start # npm</span><br><span class="line"></span><br><span class="line">与 npm 一样 可以有 yarn start 和 yarn test 两个简写的运行脚本方式</span><br></pre></td></tr></table></figure>
+
+<h4 id="显示包信息"><a href="#显示包信息" class="headerlink" title="显示包信息"></a>显示包信息</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">yarn info &lt;packageName&gt; 可以用来查看某个模块的最新版本信息</span><br><span class="line"></span><br><span class="line">yarn info webpack # yarn</span><br><span class="line"></span><br><span class="line">npm info webpack # npm</span><br><span class="line"></span><br><span class="line">yarn info webpack --json # 输出 json 格式</span><br><span class="line"></span><br><span class="line">npm info webpack --json # npm</span><br><span class="line"></span><br><span class="line">yarn info webpack readme # 输出 README 部分</span><br><span class="line"></span><br><span class="line">npm info webpack readme</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="列出所有依赖"><a href="#列出所有依赖" class="headerlink" title="列出所有依赖"></a>列出所有依赖</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">yarn list</span><br><span class="line"></span><br><span class="line">yarn list # 列出当前项目的依赖</span><br><span class="line"></span><br><span class="line">npm list # npm</span><br><span class="line"></span><br><span class="line">yarn list --depth=0 # 限制依赖的深度</span><br><span class="line"></span><br><span class="line">sudo yarn global list # 列出全局安装的模块</span><br></pre></td></tr></table></figure>
+
+<h4 id="管理-yarn-配置文件"><a href="#管理-yarn-配置文件" class="headerlink" title="管理 yarn 配置文件"></a>管理 yarn 配置文件</h4>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">yarn coinfig</span><br><span class="line"></span><br><span class="line">yarn config set key value # 设置</span><br><span class="line"></span><br><span class="line">npm config set key value</span><br><span class="line"></span><br><span class="line">yarn config get key # 读取值</span><br><span class="line"></span><br><span class="line">npm config get key</span><br><span class="line"></span><br><span class="line">yarn config delete key # 删除</span><br><span class="line"></span><br><span class="line">npm config delete key</span><br><span class="line"></span><br><span class="line">yarn config list # 显示当前配置</span><br><span class="line"></span><br><span class="line">npm config list</span><br><span class="line"></span><br><span class="line">yarn config set registry https://registry.npm.taobao.org # 设置淘宝镜像</span><br><span class="line"></span><br><span class="line">npm config set registry https://registry.npm.taobao.org # npm</span><br></pre></td></tr></table></figure>
+
+<h4 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">yarn cache</span><br><span class="line"></span><br><span class="line">sudo yarn cache list # 列出已缓存的每个包</span><br><span class="line"></span><br><span class="line">sudo yarn cache dir # 返回 全局缓存位置</span><br><span class="line"></span><br><span class="line">sudo yarn cache clean # 清除缓存</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+    
+    <div class="post__license">
+        <p>
+            <strong>本文作者：</strong>宝生
+        </p>
+        <p>
+            <strong>
+                本文链接：
+            </strong>
+            <a href="https://liuios.github.io/2021/09/07/yarn%E7%9A%84%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">https://liuios.github.io/2021/09/07/yarn%E7%9A%84%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</a>
+        </p>
+        
+    </div>
+ 
+    <div class="post-footer__meta"><p>更新于 2021-09-07</p></div> 
+    <div class="post-entry__tags"><a href="/tags/yarn/" class="post-tags__link button"># yarn</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="/2021/09/07/iOS-%E5%BC%80%E5%8F%91%E8%A7%A3%E5%86%B3dyld-Library-not-loaded-rpath-xxx-framework/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            iOS 开发解决dyld: Library not loaded: @rpath/xxx.framework/ 
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments content-card" id="comment">
+        
+    <h4>评论</h4>
+    
+    
+    
+    <div id="valine_container" class="valine_thread"></div>
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2021 <a href="/">宝生的博客</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+    
+    
+    <script>
+        function loadComment() {
+            let e;
+            (e = document.createElement("script")).src = 'https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js',
+            document.body.appendChild(e);
+            e.onload = () => {
+                var valineConfig = {"appId":"ODBJnxOXlHO3QooAbKpprTQF-gzGzoHsz","appKey":"l0E6n9ofbixyqyFBJUajeFU0","placeholder":"抢沙发～","path":null,"avatar":"robohash","meta":["nick","mail","link"],"pageSize":null,"lang":"zh-CN","visitor":true,"highlight":true,"avatarForce":null,"recordIP":null,"serverURLs":null,"enableQQ":null,"requiredFields":[],"emojiCDN":null,"emojiMaps":null};
+                valineConfig.el = '#valine_container';
+                for (var i in valineConfig) {
+                    if (valineConfig[i] === null) delete valineConfig[i];
+                }
+                new Valine(valineConfig);
+            };
+        }
+    
+        var runningOnBrowser = typeof window !== "undefined";
+        var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+        var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+    
+        setTimeout(function () {
+            if (!isBot && supportsIntersectionObserver) {
+                var comment_observer = new IntersectionObserver(function(entries) {
+                    if (entries[0].isIntersecting) {
+                        loadComment();
+                        comment_observer.disconnect();
+                    }
+                }, { threshold: [0] });
+                comment_observer.observe(document.getElementById('comment'));
+            } else {
+                loadComment();
+            }
+        }, 1);
+    </script>
+
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>
