@@ -6,7 +6,7 @@
   <link href="https://liuios.github.io/atom.xml" rel="self"/>
   
   <link href="https://liuios.github.io/"/>
-  <updated>2021-09-07T10:47:03.924Z</updated>
+  <updated>2021-09-07T10:59:18.885Z</updated>
   <id>https://liuios.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>android 多个图表闪退</title>
+    <link href="https://liuios.github.io/2021/09/07/android-%E5%A4%9A%E4%B8%AA%E5%9B%BE%E8%A1%A8%E9%97%AA%E9%80%80/"/>
+    <id>https://liuios.github.io/2021/09/07/android-%E5%A4%9A%E4%B8%AA%E5%9B%BE%E8%A1%A8%E9%97%AA%E9%80%80/</id>
+    <published>2021-09-07T10:56:54.000Z</published>
+    <updated>2021-09-07T10:59:18.885Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">webView组件加</span><br><span class="line">androidHardwareAccelerationDisabled</span><br><span class="line">属性 关闭硬件加速</span><br><span class="line"></span><br><span class="line">在库中，WebView组件添加androidHardwareAccelerationDisabled属性，关闭android硬件加速</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span c</summary>
+      
+    
+    
+    
+    <category term="技术" scheme="https://liuios.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="react-native" scheme="https://liuios.github.io/tags/react-native/"/>
+    
+  </entry>
   
   <entry>
     <title>Mac sourcetree自动添加ssh key</title>

@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>android 多个图表闪退</title>
+      <link href="/2021/09/07/android-%E5%A4%9A%E4%B8%AA%E5%9B%BE%E8%A1%A8%E9%97%AA%E9%80%80/"/>
+      <url>/2021/09/07/android-%E5%A4%9A%E4%B8%AA%E5%9B%BE%E8%A1%A8%E9%97%AA%E9%80%80/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">webView组件加</span><br><span class="line">androidHardwareAccelerationDisabled</span><br><span class="line">属性 关闭硬件加速</span><br><span class="line"></span><br><span class="line">在库中，WebView组件添加androidHardwareAccelerationDisabled属性，关闭android硬件加速</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> react-native </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Mac sourcetree自动添加ssh key</title>
       <link href="/2021/09/07/Mac-sourcetree%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0ssh-key/"/>
       <url>/2021/09/07/Mac-sourcetree%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0ssh-key/</url>
