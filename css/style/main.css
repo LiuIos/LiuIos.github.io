@@ -646,6 +646,7 @@ overflows table td {
   border-radius: 100%;
   border: 2px solid #fff;
   background: #fff;
+  object-fit: contain;
 }
 .links-list .links-content .links-right {
   margin: 4px 8px;

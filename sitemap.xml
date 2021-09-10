@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://liuios.github.io/friends/index.html</loc>
+    
+    <lastmod>2021-09-10</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://liuios.github.io/2021/09/09/React-Native-%E6%90%AD%E9%85%8D-MobX-%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/</loc>
     
     <lastmod>2021-09-10</lastmod>
@@ -73,13 +80,6 @@
   
   <url>
     <loc>https://liuios.github.io/2021/09/07/yarn%E7%9A%84%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
-    
-    <lastmod>2021-09-07</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://liuios.github.io/friends/index.html</loc>
     
     <lastmod>2021-09-07</lastmod>
     
