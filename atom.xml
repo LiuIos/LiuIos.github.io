@@ -6,7 +6,7 @@
   <link href="https://liuios.github.io/atom.xml" rel="self"/>
   
   <link href="https://liuios.github.io/"/>
-  <updated>2021-09-10T06:41:38.578Z</updated>
+  <updated>2022-01-05T09:24:12.543Z</updated>
   <id>https://liuios.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>图床工具PicGo</title>
+    <link href="https://liuios.github.io/2022/01/05/%E5%9B%BE%E5%BA%8A%E5%B7%A5%E5%85%B7PicGo/"/>
+    <id>https://liuios.github.io/2022/01/05/%E5%9B%BE%E5%BA%8A%E5%B7%A5%E5%85%B7PicGo/</id>
+    <published>2022-01-05T07:26:09.000Z</published>
+    <updated>2022-01-05T09:24:12.543Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>使用 Picgo+Github 搭建个人图床，为本地图片添加外部链接。</p></blockquote><h2 id="1-创建-GitHub-仓库"><a href="#1-创建-GitHub-仓库" class="headerlink" title="1. 创建 GitHub 仓库"></a>1. 创建 GitHub 仓库</h2><blockquote><p>注意事项：仓库类型要选择 public，否则访问不到图片</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed/20220105155417.png"></p><p><img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed/20220105155800.png"></p><h2 id="2-获取-token"><a href="#2-获取-token" class="headerlink" title="2.获取 token"></a>2.获取 token</h2><ol><li>创建完成后进入，选择右上角的 Settings</li></ol><p><img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed/image-20220105160218992.png" alt="image-20220105160218992"></p><ol start="2"><li>选择 Developer settings</li></ol><p><img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed/image-20220105160501024.png" alt="image-20220105160501024"></p><p>3.选择 Personal access tokens，然后点击 Generate new token</p><p><img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed/image-20220105160724298.png" alt="image-20220105160724298"></p><ol start="4"><li>填写一下 Note，过期时间选择无期限，并勾选 repo 即可，拉到页面最下方确认提交</li></ol><p><img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed/image-20220105161002173.png" alt="image-20220105161002173"></p><ol start="5"><li><p>创建完成后，即可看到 token。这个值一定要保存下来，因为只显示一次。</p><p><img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed/20220105161311.png"></p></li></ol><h2 id="3-PicGo-设置"><a href="#3-PicGo-设置" class="headerlink" title="3. PicGo 设置"></a>3. PicGo 设置</h2><p>1.<a href="https://molunerfinn.com/PicGo/">下载 Picgo</a>，选择你所需的版本</p><p><img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed/image-20220105163228252.png" alt="image-20220105163228252"></p><ol start="2"><li><p>配置 GitHub 图床</p><blockquote><p>仓库名、分支、token</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed/image-20220105163548415.png" alt="image-20220105163548415"></p></li><li><p>配置好后，就能上传图片了。</p><p><img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed/image-20220105163837173.png" alt="image-20220105163837173"></p></li></ol><h2 id="4-搭配-CDN-使用"><a href="#4-搭配-CDN-使用" class="headerlink" title="4.搭配 CDN 使用"></a>4.搭配 CDN 使用</h2><blockquote><p>使用 GitHub 仓库作为图床，存在的问题是国内访问 github 的速度很慢，可以利用 <a href="https://www.jsdelivr.com/?docs=gh">jsDelivr CDN</a> 来加速访问。jsDelivr 是一个免费开源的 CDN 解决方案，该平台是首个打通中国大陆与海外的免费 CDN 服务，拥有中国政府颁发的 ICP 许可证，无须担心中国防火墙问题而影响使用。使用 jsDelivr 加速访问，需要将自定义域名设置为<code>https://cdn.jsdelivr.net/gh/用户名/图床仓库名/</code>。</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed/image-20220105164501818.png" alt="image-20220105164501818"></p><p>加上 cdn 后图片访问速度飞快。</p><p>测试： <a href="https://cdn.jsdelivr.net/gh/LiuIos/picBed/image-20220105164501818.png">https://cdn.jsdelivr.net/gh/LiuIos/picBed/image-20220105164501818.png</a></p><h2 id="5-Typora-配置图床"><a href="#5-Typora-配置图床" class="headerlink" title="5.Typora 配置图床"></a>5.Typora 配置图床</h2><p>Typora 是最好用的 Markdown 编辑器，还可以搭配图床一起使用，非常 nice ～</p><ol><li>PicGO 设置 Server</li></ol><p><img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed/image-20220105165803914.png" alt="image-20220105165803914"></p><p><img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed/image-20220105165845304.png" alt="image-20220105165845304"></p><ol start="2"><li><p>Typora 设置</p><p><img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed/image-20220105165929721.png" alt="image-20220105165929721"></p></li></ol><p>右键上传就行了。</p><p><img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed/image-20220105170127016.png" alt="image-20220105170127016"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;使用 Picgo+Github 搭建个人图床，为本地图片添加外部链接。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;1-创建-GitHub-仓库&quot;&gt;&lt;a href=&quot;#1-创建-GitHub-仓库&quot; class=&quot;headerlink&quot; t</summary>
+      
+    
+    
+    
+    <category term="技术" scheme="https://liuios.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="工具" scheme="https://liuios.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
   
   <entry>
     <title>React Native 搭配 MobX 使用心得</title>
@@ -45,15 +72,15 @@
     <link href="https://liuios.github.io/2021/09/08/Android%E6%89%93%E5%8C%85%E6%B7%B7%E6%B7%86%E5%87%BA%E7%8E%B0java-lang-OutOfMemoryError-Java-heap-space/"/>
     <id>https://liuios.github.io/2021/09/08/Android%E6%89%93%E5%8C%85%E6%B7%B7%E6%B7%86%E5%87%BA%E7%8E%B0java-lang-OutOfMemoryError-Java-heap-space/</id>
     <published>2021-09-08T02:56:42.000Z</published>
-    <updated>2021-09-08T02:58:15.400Z</updated>
+    <updated>2021-09-16T08:22:59.449Z</updated>
     
-    <content type="html"><![CDATA[<p>配置gradle.properties</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">org.gradle.jvmargs=-Xmx4096m -XX:MaxPermSize=4096m -XX:+HeapDumpOnOutOfMemoryError</span><br><span class="line">org.gradle.daemon=true</span><br><span class="line">org.gradle.parallel=true</span><br><span class="line">org.gradle.configureondemand=true</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>配置 gradle.properties</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">org.gradle.jvmargs=-Xmx4096m -XX:MaxPermSize=4096m -XX:+HeapDumpOnOutOfMemoryError</span><br><span class="line">org.gradle.daemon=true</span><br><span class="line">org.gradle.parallel=true</span><br><span class="line">org.gradle.configureondemand=true</span><br></pre></td></tr></table></figure>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;配置gradle.properties&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class</summary>
+    <summary type="html">&lt;p&gt;配置 gradle.properties&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span clas</summary>
       
     
     
