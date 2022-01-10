@@ -4,6 +4,7 @@ date: 2021-09-07 17:06:20
 tags: iOS
 categories: 技术
 thumbnail: https://cdn.jsdelivr.net/gh/LiuIos/picBed/20210907170920.png
+toc: false
 ---
 
 最近使用百度人脸采集 sdk 时运行报错
