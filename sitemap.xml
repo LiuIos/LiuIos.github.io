@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://liuios.github.io/2022/01/13/react-native-ios-%E6%BB%9A%E5%8A%A8%E6%9D%A1%E4%BD%8D%E7%BD%AE%E5%BC%82%E5%B8%B8/</loc>
+    
+    <lastmod>2022-01-13</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://liuios.github.io/2022/01/05/%E5%9B%BE%E5%BA%8A%E5%B7%A5%E5%85%B7PicGo/</loc>
     
     <lastmod>2022-01-05</lastmod>
@@ -102,50 +109,50 @@
 
   <url>
     <loc>https://liuios.github.io/</loc>
-    <lastmod>2022-01-05</lastmod>
+    <lastmod>2022-01-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>https://liuios.github.io/tags/Android/</loc>
-    <lastmod>2022-01-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://liuios.github.io/tags/SourceTree/</loc>
-    <lastmod>2022-01-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://liuios.github.io/tags/react-native/</loc>
-    <lastmod>2022-01-05</lastmod>
+    <lastmod>2022-01-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://liuios.github.io/tags/iOS/</loc>
-    <lastmod>2022-01-05</lastmod>
+    <lastmod>2022-01-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://liuios.github.io/tags/Android/</loc>
+    <lastmod>2022-01-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://liuios.github.io/tags/yarn/</loc>
-    <lastmod>2022-01-05</lastmod>
+    <lastmod>2022-01-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://liuios.github.io/tags/%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2022-01-05</lastmod>
+    <lastmod>2022-01-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://liuios.github.io/tags/SourceTree/</loc>
+    <lastmod>2022-01-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -154,7 +161,7 @@
   
   <url>
     <loc>https://liuios.github.io/categories/%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2022-01-05</lastmod>
+    <lastmod>2022-01-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>

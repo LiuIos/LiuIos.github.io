@@ -6,7 +6,7 @@
   <link href="https://liuios.github.io/atom.xml" rel="self"/>
   
   <link href="https://liuios.github.io/"/>
-  <updated>2022-01-05T09:24:12.543Z</updated>
+  <updated>2022-01-13T06:57:54.285Z</updated>
   <id>https://liuios.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>react native ios 滚动条位置异常</title>
+    <link href="https://liuios.github.io/2022/01/13/react-native-ios-%E6%BB%9A%E5%8A%A8%E6%9D%A1%E4%BD%8D%E7%BD%AE%E5%BC%82%E5%B8%B8/"/>
+    <id>https://liuios.github.io/2022/01/13/react-native-ios-%E6%BB%9A%E5%8A%A8%E6%9D%A1%E4%BD%8D%E7%BD%AE%E5%BC%82%E5%B8%B8/</id>
+    <published>2022-01-13T02:14:38.000Z</published>
+    <updated>2022-01-13T06:57:54.285Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>React native ScrollView FlatList 滚动条位置异常、错位</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed/image-20220113144619480.png" alt="image-20220113144619480"></p><h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><ol><li>ScrollView 增加属性</li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrollIndicatorInsets=&#123;&#123; right: 1 &#125;&#125;</span><br></pre></td></tr></table></figure><ol start="2"><li>在根目录 index.js 中添加</li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import &#123; ScrollView &#125; from &#x27;react-native&#x27;;</span><br><span class="line"></span><br><span class="line">ScrollView.defaultProps = ScrollView.defaultProps || &#123;&#125;;</span><br><span class="line">ScrollView.defaultProps.automaticallyAdjustsScrollIndicatorInsets = false;</span><br></pre></td></tr></table></figure><p>参考</p><p><a href="https://links.jianshu.com/go?to=https://github.com/facebook/react-native/issues/26610">https://github.com/facebook/react-native/issues/26610</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;React native ScrollView FlatList 滚动条位置异常、错位&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/LiuIos/picBed/image-2</summary>
+      
+    
+    
+    
+    <category term="技术" scheme="https://liuios.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="react-native" scheme="https://liuios.github.io/tags/react-native/"/>
+    
+  </entry>
   
   <entry>
     <title>图床工具PicGo</title>
@@ -139,9 +166,9 @@
     <category term="技术" scheme="https://liuios.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="Android" scheme="https://liuios.github.io/tags/Android/"/>
-    
     <category term="iOS" scheme="https://liuios.github.io/tags/iOS/"/>
+    
+    <category term="Android" scheme="https://liuios.github.io/tags/Android/"/>
     
   </entry>
   
