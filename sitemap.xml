@@ -123,13 +123,6 @@
 
   
   <url>
-    <loc>https://liuios.github.io/tags/Android/</loc>
-    <lastmod>2022-01-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://liuios.github.io/tags/SourceTree/</loc>
     <lastmod>2022-01-18</lastmod>
     <changefreq>daily</changefreq>
@@ -145,6 +138,13 @@
   
   <url>
     <loc>https://liuios.github.io/tags/iOS/</loc>
+    <lastmod>2022-01-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://liuios.github.io/tags/Android/</loc>
     <lastmod>2022-01-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
