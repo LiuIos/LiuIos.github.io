@@ -340,7 +340,7 @@ java.lang.UnsupportedOperationException: For security reasons, WebView is not al
 
  
 </div>
-<div class="post-entry__tags"><a href="/tags/iOS/" class="post-tags__link button"># iOS</a><a href="/tags/Android/" class="post-tags__link button"># Android</a></div> 
+<div class="post-entry__tags"><a href="/tags/Android/" class="post-tags__link button"># Android</a><a href="/tags/iOS/" class="post-tags__link button"># iOS</a></div> 
 <a href="/2021/09/08/iOS-%E5%90%AF%E5%8A%A8%E5%9B%BE%E5%B0%BA%E5%AF%B8%E9%80%82%E9%85%8D/" class="post-entry__link">iOS 启动图尺寸适配</a>
                 </div>
             
@@ -455,7 +455,13 @@ java.lang.UnsupportedOperationException: For security reasons, WebView is not al
 </main>
 
             <footer class="footer">
-    
+     
+    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
     
 
 
@@ -497,6 +503,41 @@ java.lang.UnsupportedOperationException: For security reasons, WebView is not al
     
  
 
+
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.css">
+
+    
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.js"></script>
+
+    <script>
+        let lazyloadT = Boolean('false'),
+            auto_fancybox = Boolean('true')
+        if (auto_fancybox) {
+            $(".post__content").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        } else {
+            $(".post__content").find("fancybox").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        }
+    </script>
  
 
  

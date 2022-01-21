@@ -150,7 +150,7 @@
 
     
         <main class="main tagscloud">
-            <a href="/tags/Android/" style="font-size: 25.5px; color: #798090">Android</a> <a href="/tags/SourceTree/" style="font-size: 16px; color: #acb3c2">SourceTree</a> <a href="/tags/iOS/" style="font-size: 25.5px; color: #798090">iOS</a> <a href="/tags/react-native/" style="font-size: 35px; color: #454d5d">react-native</a> <a href="/tags/yarn/" style="font-size: 16px; color: #acb3c2">yarn</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 16px; color: #acb3c2">工具</a>
+            <a href="/tags/Android/" style="font-size: 28.67px; color: #676f7f">Android</a> <a href="/tags/SourceTree/" style="font-size: 16px; color: #acb3c2">SourceTree</a> <a href="/tags/iOS/" style="font-size: 28.67px; color: #676f7f">iOS</a> <a href="/tags/react-native/" style="font-size: 35px; color: #454d5d">react-native</a> <a href="/tags/yarn/" style="font-size: 16px; color: #acb3c2">yarn</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 22.33px; color: #8a91a0">工具</a>
         </main>
         <style>
             .tagscloud a {
@@ -168,7 +168,13 @@
 
 
             <footer class="footer">
-    
+     
+    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
     
 
 
@@ -210,6 +216,41 @@
     
  
 
+
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.css">
+
+    
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.js"></script>
+
+    <script>
+        let lazyloadT = Boolean('false'),
+            auto_fancybox = Boolean('true')
+        if (auto_fancybox) {
+            $(".post__content").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        } else {
+            $(".post__content").find("fancybox").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        }
+    </script>
  
 
  

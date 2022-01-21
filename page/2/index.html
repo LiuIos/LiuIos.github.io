@@ -152,6 +152,34 @@
                 <div class='post-entry content-card'>
                     <div class="post-entry__header">
     
+        <div class="post-thumbnail" style="background-image: url('https://cdn.jsdelivr.net/gh/LiuIos/picBed/20210907104054.png');"></div>
+    
+</div>
+<div class="post-entry__content">
+    <h2 class="post-entry__title">
+        react-native修改第三方包
+    </h2>
+    
+        <p>
+            使用第三方包的时候，经常需要修改内部源码来解决 bug 和实现效果，然而每次 yarn、npm install 之后，修改的代码又会被覆盖，让人抓狂，下面介绍一个好用的方法 👇
+使用工具：
+        </p>
+    
+</div>
+<div class="post-entry__meta">
+    <a href="/archives/2021/09/" class="post-meta__date button">2021-09-07</a>
+    
+    <span class="separate-dot"></span><a href="/categories/%E6%8A%80%E6%9C%AF/" class="button">技术</a>
+
+ 
+</div>
+<div class="post-entry__tags"><a href="/tags/react-native/" class="post-tags__link button"># react-native</a></div> 
+<a href="/2021/09/07/react-native%E4%BF%AE%E6%94%B9%E7%AC%AC%E4%B8%89%E6%96%B9%E5%8C%85/" class="post-entry__link">react-native修改第三方包</a>
+                </div>
+            
+                <div class='post-entry content-card'>
+                    <div class="post-entry__header">
+    
         <div class="post-thumbnail" style="background-image: url('https://cdn.jsdelivr.net/gh/LiuIos/picBed/20210907172943.png');"></div>
     
 </div>
@@ -263,7 +291,13 @@
 </main>
 
             <footer class="footer">
-    
+     
+    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
     
 
 
@@ -305,6 +339,41 @@
     
  
 
+
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.css">
+
+    
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.js"></script>
+
+    <script>
+        let lazyloadT = Boolean('false'),
+            auto_fancybox = Boolean('true')
+        if (auto_fancybox) {
+            $(".post__content").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        } else {
+            $(".post__content").find("fancybox").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        }
+    </script>
  
 
  
