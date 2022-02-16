@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+        <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/LiuIos/picBed/%E4%B9%A6%E7%B1%8D.png">
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>搞懂DNS | 宝生的博客</title>
+
+
+    <meta name="keywords" content="网络, Blog,Hexo,Theme,刘宝生,LiuIos">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="什么是DNSDNS 即域名系统，全称是 Domain Name System。当我们在浏览器输入一个 URL 地址时，浏览器要向这个 URL 的主机名对应的服务器发送请求，就得知道服务器的 IP，对于浏览器来说，DNS 的作用就是将主机名转换成 IP 地址。下面是摘自《计算机网络：自顶向下方法》的概念：   DNS 是：  一个由分层的 DNS 服务器实现的分布式数据库 一个使得主机能够查询分布式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搞懂DNS">
+<meta property="og:url" content="https://liuios.github.io/2022/02/16/%E6%90%9E%E6%87%82DNS/index.html">
+<meta property="og:site_name" content="宝生的博客">
+<meta property="og:description" content="什么是DNSDNS 即域名系统，全称是 Domain Name System。当我们在浏览器输入一个 URL 地址时，浏览器要向这个 URL 的主机名对应的服务器发送请求，就得知道服务器的 IP，对于浏览器来说，DNS 的作用就是将主机名转换成 IP 地址。下面是摘自《计算机网络：自顶向下方法》的概念：   DNS 是：  一个由分层的 DNS 服务器实现的分布式数据库 一个使得主机能够查询分布式">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LiuIos/picBed/20220216155844.png">
+<meta property="article:published_time" content="2022-02-16T07:55:35.000Z">
+<meta property="article:modified_time" content="2022-02-16T08:41:24.137Z">
+<meta property="article:author" content="刘宝生">
+<meta property="article:tag" content="网络">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/LiuIos/picBed/20220216155844.png">
+
+
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="/css/highlight/default.css" media="none" >
+        
+            <link rel="stylesheet" id="hl-dark-theme" href="/css/highlight/dark.css" media="none">
+        
+    
+
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/style/dark.css">
+
+    
+<script src="/js/darkmode.js"></script>
+
+
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="宝生的博客" type="application/atom+xml">
+</head>
+
+    <body>
+        <div id="app">
+            <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">宝生的博客</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/" class="navbar-menu button">首页</a>
+                
+                    <a href="/tags/" class="navbar-menu button">标签</a>
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a href="/friends/" class="navbar-menu button">友链</a>
+                
+                    <a href="/atom.xml" class="navbar-menu button">RSS</a>
+                
+            </div>
+        
+        
+        
+    <a href="/search/" id="btn-search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="32"><path d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z"></path></svg>
+    </a>
+
+
+        
+        
+    <a href="javaScript:void(0);" id="btn-toggle-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </a>
+
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/" class="dropdown-menu button">首页</a>
+                
+                    <a href="/tags/" class="dropdown-menu button">标签</a>
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a href="/friends/" class="dropdown-menu button">友链</a>
+                
+                    <a href="/atom.xml" class="dropdown-menu button">RSS</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        搞懂DNS
+    </h1>
+    <div class="post-title__meta">
+        <a href="/archives/2022/02/" class="post-meta__date button">2022-02-16</a>
+        
+    <span class="separate-dot"></span><a href="/categories/%E6%8A%80%E6%9C%AF/" class="button">技术</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFDNS"><span class="toc-text">什么是DNS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E3%80%81%E5%B1%82%E6%AC%A1%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">分布式、层次数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%88%86%E5%B8%83%E5%BC%8F%EF%BC%9F"><span class="toc-text">什么是分布式？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%B1%82%E6%AC%A1%EF%BC%9F"><span class="toc-text">什么是层次？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0DNS%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">本地DNS服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%92%E5%BD%92%E6%9F%A5%E8%AF%A2%E3%80%81%E8%BF%AD%E4%BB%A3%E6%9F%A5%E8%AF%A2"><span class="toc-text">递归查询、迭代查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DNS%E7%BC%93%E5%AD%98"><span class="toc-text">DNS缓存</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">文章目录</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFDNS"><span class="toc-text">什么是DNS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E3%80%81%E5%B1%82%E6%AC%A1%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">分布式、层次数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%88%86%E5%B8%83%E5%BC%8F%EF%BC%9F"><span class="toc-text">什么是分布式？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%B1%82%E6%AC%A1%EF%BC%9F"><span class="toc-text">什么是层次？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0DNS%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">本地DNS服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%92%E5%BD%92%E6%9F%A5%E8%AF%A2%E3%80%81%E8%BF%AD%E4%BB%A3%E6%9F%A5%E8%AF%A2"><span class="toc-text">递归查询、迭代查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DNS%E7%BC%93%E5%AD%98"><span class="toc-text">DNS缓存</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header">
+    
+        <div class="post-thumbnail" style="background-image: url('https://cdn.jsdelivr.net/gh/LiuIos/picBed/20220216155844.png');"></div>
+    
+</div>
+    <div class="post__content">
+        <h2 id="什么是DNS"><a href="#什么是DNS" class="headerlink" title="什么是DNS"></a>什么是DNS</h2><p>DNS 即域名系统，全称是 <strong>D</strong>omain <strong>N</strong>ame <strong>S</strong>ystem。当我们在浏览器输入一个 URL 地址时，浏览器要向这个 URL 的主机名对应的服务器发送请求，就得知道服务器的 IP，对于浏览器来说，DNS 的作用就是将<strong>主机名转换成 IP 地址</strong>。下面是摘自《计算机网络：自顶向下方法》的概念：</p>
+<blockquote>
+<p> DNS 是：</p>
+<ol>
+<li>一个由分层的 DNS 服务器实现的<strong>分布式数据库</strong></li>
+<li>一个使得主机能够查询分布式数据库的<strong>应用层协议</strong></li>
+</ol>
+</blockquote>
+<p>也就是，DNS 是一个应用层协议，我们发送一个请求，其中包含我们要查询的主机名，它就会给我们返回这个主机名对应的 IP；</p>
+<p>其次，DNS是一个分布式数据库，整个DNS系统由分散在世界各地的很多台DNS服务器组成，每台DNS服务器上都保存了一些数据，这些数据可以让我们最终查到主机名对应的IP。</p>
+<p><strong>所以 DNS 的查询过程，说白了，就是去向这些 DNS 服务器询问，你知道这个主机名的 IP 是多少吗，不知道？那你知道去哪台 DNS 服务器上可以查到吗？直到查到我想要的 IP 为止。</strong></p>
+<h2 id="分布式、层次数据库"><a href="#分布式、层次数据库" class="headerlink" title="分布式、层次数据库"></a>分布式、层次数据库</h2><h3 id="什么是分布式？"><a href="#什么是分布式？" class="headerlink" title="什么是分布式？"></a>什么是分布式？</h3><p>这个世界上没有一台 DNS 服务器拥有因特网上所有主机的映射，每台 DNS 只负责部分映射。</p>
+<h3 id="什么是层次？"><a href="#什么是层次？" class="headerlink" title="什么是层次？"></a>什么是层次？</h3><p>DNS 服务器有 3 种类型：根 DNS 服务器、顶级域（Top-Level Domain, TLD）DNS 服务器和权威 DNS 服务器。它们的层次结构如下图所示：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed/123_2022-02-16_16-12-42-20220216162240899.png"></p>
+<p>图片来源：《计算机网络：自顶向下方法》</p>
+<ul>
+<li>根 DNS 服务器</li>
+</ul>
+<p>首先我们要明确根域名是什么，比如 <code>www.baidu.com</code>，有些同学可能会误以为 <code>com</code> 就是根域名，其实 <code>com</code> 是顶级域名，<code>www.baidu.com</code> 的完整写法是 <code>www.baidu.com.</code>，最后的这个 <code>.</code> 就是根域名。</p>
+<p>根 DNS 服务器的作用是什么呢？就是管理它的下一级，也就是顶级域 DNS 服务器。通过询问根 DNS 服务器，我们可以知道一个主机名对应的顶级域 DNS 服务器的 IP 是多少，从而继续向顶级域 DNS 服务器发起查询请求。</p>
+<ul>
+<li>顶级域 DNS 服务器</li>
+</ul>
+<p>除了前面提到的 <code>com</code> 是顶级域名，常见的顶级域名还有 <code>cn</code>、<code>org</code>、<code>edu</code> 等。顶级域 DNS 服务器，也就是 TLD，提供了它的下一级，也就是权威 DNS 服务器的 IP 地址。</p>
+<ul>
+<li>权威 DNS 服务器</li>
+</ul>
+<p>权威 DNS 服务器可以返回主机 - IP 的最终映射。</p>
+<p>关于这几个层次的服务器之间是怎么交互的，接下来我们会讲到 DNS 具体的查询过程，结合查询过程，大家就不难理解它们之间的关系了。</p>
+<h2 id="本地DNS服务器"><a href="#本地DNS服务器" class="headerlink" title="本地DNS服务器"></a>本地DNS服务器</h2><p>之前对 DNS 有过了解的同学可能会发现，上一节的 DNS 层次结构，为什么没有提到本地 DNS 服务器？因为<strong>严格来说，本地 DNS 服务器并不属于 DNS 的层次结构</strong>，但它对 DNS 层次结构是至关重要的。那什么是本地 DNS 服务器呢？</p>
+<p>每个 ISP 都有一台本地 DNS 服务器，比如一个居民区的 ISP、一个大学的 ISP、一个机构的 ISP，都有一台或多台本地 DNS 服务器。当主机发出 DNS 请求时，该请求被发往本地 DNS 服务器，<strong>本地 DNS 服务器起着代理的作用</strong>，并负责将该请求<strong>转发</strong>到 DNS 服务器层次结构中。</p>
+<p>接下来就让我们通过一个简单的例子，看看 DNS 的查询过程是怎样的，看看客户端、本地 DNS 服务器、DNS 服务器层次结构之间是如何交互的。</p>
+<h2 id="递归查询、迭代查询"><a href="#递归查询、迭代查询" class="headerlink" title="递归查询、迭代查询"></a>递归查询、迭代查询</h2><p>如下图，假设主机 <code>m.n.com</code> 想要获取主机 <code>a.b.com</code> 的 IP 地址，会经过以下几个步骤：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed/20220216162649_2022-02-16_16-30-27.png" alt="20220216162649_2022-02-16_16-30-27"></p>
+<ol>
+<li><p>首先，主机 <code>m.n.com</code> 向它的本地 DNS 服务器发送一个 DNS 查询报文，其中包含期待被转换的主机名 <code>a.b.com</code>；</p>
+</li>
+<li><p>本地 DNS 服务器将该报文转发到根 DNS 服务器；</p>
+</li>
+<li><p>该根 DNS 服务器注意到 <code>com</code> 前缀，便向本地 DNS 服务器返回 <code>com</code> 对应的顶级域 DNS 服务器（TLD）的 IP 地址列表。</p>
+</li>
+</ol>
+<p>​        意思就是，我不知道 <code>a.b.com</code> 的 IP，不过这些 TLD 服务器可能知道，你去问他们吧；</p>
+<ol start="4">
+<li><p>本地 DNS 服务器则向其中一台 TLD 服务器发送查询报文；</p>
+</li>
+<li><p>该 TLD 服务器注意到 <code>b.com</code> 前缀，便向本地 DNS 服务器返回权威 DNS 服务器的 IP 地址。</p>
+</li>
+</ol>
+<p>​        意思就是，我不知道 <code>a.b.com</code> 的 IP，不过这些权威服务器可能知道，你去问他们吧；</p>
+<ol start="6">
+<li><p>本地 DNS 服务器又向其中一台权威服务器发送查询报文；</p>
+</li>
+<li><p>终于，该权威服务器返回了 <code>a.b.com</code> 的 IP 地址；</p>
+</li>
+<li><p>本地 DNS 服务器将 <code>a.b.com</code> 跟 IP 地址的映射返回给主机 <code>m.n.com</code>，<code>m.n.com</code> 就可以用该 IP 向 <code>a.b.com</code> 发送请求啦。</p>
+</li>
+</ol>
+<p>主机 <code>m.n.com</code> 向本地 DNS 服务器 <code>dns.n.com</code> 发出的查询就是<strong>递归查询</strong>，这个查询是主机 <code>m.n.com</code> 以自己的名义向本地 DNS 服务器请求想要的 IP 映射，并且本地 DNS 服务器直接返回映射结果给到主机。</p>
+<p>而后继的三个查询是<strong>迭代查询</strong>，包括本地 DNS 服务器向根 DNS 服务器发送查询请求、本地 DNS 服务器向 TLD 服务器发送查询请求、本地 DNS 服务器向权威 DNS 服务器发送查询请求，<strong>所有的请求都是由本地 DNS 服务器发出，所有的响应都是直接返回给本地 DNS 服务器</strong>。</p>
+<p>那么问题来了，所有的 DNS 查询都必须遵循这种<strong>递归 + 迭代</strong>的模式吗？</p>
+<p>当然不是。</p>
+<p>从理论上讲，<strong>任何 DNS 查询既可以是递归的，也可以是迭代的</strong>。下图的所有查询就都是递归的，不包含迭代。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed/20220216163701_2022-02-16_16-38-16.png" alt="20220216163701_2022-02-16_16-38-16"></p>
+<p>那么，TLD 一定知道权威 DNS 服务器的 IP 地址吗？</p>
+<p>还真不一定，有时 TLD 只是知道中间的某个 DNS 服务器，再由这个中间 DNS 服务器去找到权威 DNS 服务器。这种时候，整个查询过程就需要更多的 DNS 报文。</p>
+<h2 id="DNS缓存"><a href="#DNS缓存" class="headerlink" title="DNS缓存"></a>DNS缓存</h2><p>为了让我们更快的拿到想要的 IP，DNS 广泛使用了缓存技术。DNS 缓存的原理非常简单，在一个 DNS 查询的过程中，当某一台 DNS 服务器接收到一个 DNS 应答（例如，包含某主机名到 IP 地址的映射）时，它就能够将映射缓存到本地，下次查询就可以直接用缓存里的内容。当然，缓存并不是永久的，每一条映射记录都有一个对应的生存时间，一旦过了生存时间，这条记录就应该从缓存移出。</p>
+<p>事实上，<strong>有了缓存，大多数 DNS 查询都绕过了根 DNS 服务器</strong>，需要向根 DNS 服务器发起查询的请求很少。</p>
+<p>参考：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6990344840181940261">https://juejin.cn/post/6990344840181940261</a></p>
+
+    </div>
+    
+    <div class="post__license">
+        <p>
+            <strong>本文作者：</strong>宝生
+        </p>
+        <p>
+            <strong>
+                本文链接：
+            </strong>
+            <a href="https://liuios.github.io/2022/02/16/%E6%90%9E%E6%87%82DNS/">https://liuios.github.io/2022/02/16/%E6%90%9E%E6%87%82DNS/</a>
+        </p>
+        
+    </div>
+ 
+    <div class="post-footer__meta"><p>更新于 2022-02-16</p></div> 
+    <div class="post-entry__tags"><a href="/tags/%E7%BD%91%E7%BB%9C/" class="post-tags__link button"># 网络</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="/2022/01/21/%E7%BD%91%E9%A1%B5%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7%E6%B1%87%E6%80%BB/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            网页在线工具汇总
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>评论</h4>
+    
+    
+    
+    <div id="valine_container" class="valine_thread"></div>
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+     
+    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2022 <a href="/">宝生的博客</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.css">
+
+    
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.js"></script>
+
+    <script>
+        let lazyloadT = Boolean('false'),
+            auto_fancybox = Boolean('true')
+        if (auto_fancybox) {
+            $(".post__content").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        } else {
+            $(".post__content").find("fancybox").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+    
+    
+    <script>
+        function loadComment() {
+            let e;
+            (e = document.createElement("script")).src = 'https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js',
+            document.body.appendChild(e);
+            e.onload = () => {
+                var valineConfig = {"appId":"ODBJnxOXlHO3QooAbKpprTQF-gzGzoHsz","appKey":"l0E6n9ofbixyqyFBJUajeFU0","placeholder":"抢沙发～","path":null,"avatar":"robohash","meta":["nick","mail","link"],"pageSize":null,"lang":"zh-CN","visitor":true,"highlight":true,"avatarForce":null,"recordIP":null,"serverURLs":null,"enableQQ":null,"requiredFields":[],"emojiCDN":null,"emojiMaps":null};
+                valineConfig.el = '#valine_container';
+                for (var i in valineConfig) {
+                    if (valineConfig[i] === null) delete valineConfig[i];
+                }
+                new Valine(valineConfig);
+            };
+        }
+    
+        var runningOnBrowser = typeof window !== "undefined";
+        var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+        var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+    
+        setTimeout(function () {
+            if (!isBot && supportsIntersectionObserver) {
+                var comment_observer = new IntersectionObserver(function(entries) {
+                    if (entries[0].isIntersecting) {
+                        loadComment();
+                        comment_observer.disconnect();
+                    }
+                }, { threshold: [0] });
+                comment_observer.observe(document.getElementById('comment'));
+            } else {
+                loadComment();
+            }
+        }, 1);
+    </script>
+
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>
