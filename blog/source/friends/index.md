@@ -22,4 +22,12 @@ links:
     backgroundColor: "#fff"
     textColor: "#444"
     desc: "windows 系统、软件"
+
+  - name: 阡途应用商店
+    url: http://www.tentod.com/
+    avatar: https://cdn.jsdelivr.net/gh/LiuIos/picBed/20220113150339.png
+    target: _blank
+    backgroundColor: "#fff"
+    textColor: "#444"
+    desc: "软件、工具"
 ---

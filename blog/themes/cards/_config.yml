@@ -373,11 +373,11 @@ fold:
 
 # 图片点击放大插件
 fancybox:
-  enable: false
-  auto: false
+  enable: true
+  auto: true
 
 # 返回顶部
-back_to_top: false
+back_to_top: true
 
 # 深色模式
 darkmode: true
