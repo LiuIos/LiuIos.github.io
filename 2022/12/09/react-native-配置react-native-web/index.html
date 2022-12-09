@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+        <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/LiuIos/picBed/%E4%B9%A6%E7%B1%8D.png">
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>react native 配置react-native-web | 宝生的博客</title>
+
+
+    <meta name="keywords" content="react-native, Blog,Hexo,Theme,刘宝生,LiuIos">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="react native 配置react-native-web1.安装依赖 1yarn add react-dom react-native-web  webpack相关和 babel-plugin-react-native-web 1yarn add babel-plugin-react-native-web babel-loader url-loader webpack webpack-cli">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react native 配置react-native-web">
+<meta property="og:url" content="https://liuios.github.io/2022/12/09/react-native-%E9%85%8D%E7%BD%AEreact-native-web/index.html">
+<meta property="og:site_name" content="宝生的博客">
+<meta property="og:description" content="react native 配置react-native-web1.安装依赖 1yarn add react-dom react-native-web  webpack相关和 babel-plugin-react-native-web 1yarn add babel-plugin-react-native-web babel-loader url-loader webpack webpack-cli">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LiuIos/picBed/002.jpg">
+<meta property="article:published_time" content="2022-12-09T02:31:10.000Z">
+<meta property="article:modified_time" content="2022-12-09T06:25:59.148Z">
+<meta property="article:author" content="刘宝生">
+<meta property="article:tag" content="react-native">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/LiuIos/picBed/002.jpg">
+
+
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="/css/highlight/default.css" media="none" >
+        
+            <link rel="stylesheet" id="hl-dark-theme" href="/css/highlight/dark.css" media="none">
+        
+    
+
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/style/dark.css">
+
+    
+<script src="/js/darkmode.js"></script>
+
+
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="宝生的博客" type="application/atom+xml">
+</head>
+
+    <body>
+        <div id="app">
+            <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">宝生的博客</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/" class="navbar-menu button">首页</a>
+                
+                    <a href="/tags/" class="navbar-menu button">标签</a>
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a href="/friends/" class="navbar-menu button">友链</a>
+                
+                    <a href="/atom.xml" class="navbar-menu button">RSS</a>
+                
+            </div>
+        
+        
+        
+    <a href="/search/" id="btn-search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="32"><path d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z"></path></svg>
+    </a>
+
+
+        
+        
+    <a href="javaScript:void(0);" id="btn-toggle-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </a>
+
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/" class="dropdown-menu button">首页</a>
+                
+                    <a href="/tags/" class="dropdown-menu button">标签</a>
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a href="/friends/" class="dropdown-menu button">友链</a>
+                
+                    <a href="/atom.xml" class="dropdown-menu button">RSS</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        react native 配置react-native-web
+    </h1>
+    <div class="post-title__meta">
+        <a href="/archives/2022/12/" class="post-meta__date button">2022-12-09</a>
+        
+    <span class="separate-dot"></span><a href="/categories/%E6%8A%80%E6%9C%AF/" class="button">技术</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">文章目录</div>
+        
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header">
+    
+        <div class="post-thumbnail" style="background-image: url('https://cdn.jsdelivr.net/gh/LiuIos/picBed/002.jpg');"></div>
+    
+</div>
+    <div class="post__content">
+        <h1 id="react-native-配置react-native-web"><a href="#react-native-配置react-native-web" class="headerlink" title="react native 配置react-native-web"></a>react native 配置react-native-web</h1><p><strong>1.安装依赖</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add react-dom react-native-web</span><br></pre></td></tr></table></figure>
+
+<p>webpack相关和 <code>babel-plugin-react-native-web</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add babel-plugin-react-native-web babel-loader url-loader webpack webpack-cli webpack-dev-server html-webpack-plugin --dev</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.根目录新建 <code>web/webpack.config.js</code></strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// web/webpack.config.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">&#x27;webpack&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">&#x27;html-webpack-plugin&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> appDirectory = path.resolve(__dirname, <span class="string">&#x27;../&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> &#123;presets, plugins&#125; = <span class="built_in">require</span>(<span class="string">`<span class="subst">$&#123;appDirectory&#125;</span>/babel.config.js`</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> compileNodeModules = [</span><br><span class="line">  <span class="comment">// 这个位置，要加上所有的你用到的RN的库，因为需要把这些RN的库，都通过RNW编译成Web的代码</span></span><br><span class="line"> </span><br><span class="line">  <span class="string">&#x27;@react-navigation/bottom-tabs&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;@react-navigation/native&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;@react-navigation/native-stack&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;@react-navigation/elements&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;@react-navigation/stack&#x27;</span>,</span><br><span class="line">  <span class="comment">// &#x27;react-native-linear-gradient&#x27;,</span></span><br><span class="line">  <span class="string">&#x27;react-native-safe-area-context&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;react-native-screens&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;react-native-root-toast&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;react-native-root-siblings&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;prop-types&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;react-native-storage&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;react-native-svg&#x27;</span>,</span><br><span class="line">].map(<span class="function"><span class="params">moduleName</span> =&gt;</span> path.resolve(appDirectory, <span class="string">`node_modules/<span class="subst">$&#123;moduleName&#125;</span>`</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// This is needed for webpack to compile JavaScript.</span></span><br><span class="line"><span class="comment">// Many OSS React Native packages are not compiled to ES5 before being</span></span><br><span class="line"><span class="comment">// published. If you depend on uncompiled packages they may cause webpack build</span></span><br><span class="line"><span class="comment">// errors. To fix this webpack can be configured to compile to the necessary</span></span><br><span class="line"><span class="comment">// `node_module`.</span></span><br><span class="line"><span class="keyword">const</span> babelLoaderConfiguration = &#123;</span><br><span class="line">  <span class="attr">test</span>: <span class="regexp">/\.(js|jsx|ts|tsx)$/</span>,</span><br><span class="line">  <span class="comment">// Add every directory that needs to be compiled by Babel during the build.</span></span><br><span class="line">  include: [</span><br><span class="line">    path.resolve(appDirectory, <span class="string">&#x27;index.web.js&#x27;</span>),</span><br><span class="line">    path.resolve(appDirectory, <span class="string">&#x27;App.js&#x27;</span>),</span><br><span class="line">    path.resolve(appDirectory, <span class="string">&#x27;src&#x27;</span>),</span><br><span class="line">    path.resolve(appDirectory, <span class="string">&#x27;component&#x27;</span>),</span><br><span class="line">    path.resolve(appDirectory, <span class="string">&#x27;web&#x27;</span>),</span><br><span class="line">    path.resolve(appDirectory, <span class="string">&#x27;node_modules/react-native-uncompiled&#x27;</span>),</span><br><span class="line">    ...compileNodeModules,</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">use</span>: &#123;</span><br><span class="line">    <span class="attr">loader</span>: <span class="string">&#x27;babel-loader&#x27;</span>,</span><br><span class="line">    <span class="attr">options</span>: &#123;</span><br><span class="line">      <span class="attr">cacheDirectory</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="comment">// The &#x27;metro-react-native-babel-preset&#x27; preset is recommended to match React Native&#x27;s packager</span></span><br><span class="line">      <span class="comment">//   presets: [&#x27;module:metro-react-native-babel-preset&#x27;],</span></span><br><span class="line">      <span class="comment">// Re-write paths to import only the modules needed by the app</span></span><br><span class="line">      <span class="attr">plugins</span>: [</span><br><span class="line">        <span class="string">&#x27;react-native-web&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;@babel/plugin-proposal-export-namespace-from&#x27;</span>,</span><br><span class="line">        [<span class="string">&#x27;@babel/plugin-proposal-decorators&#x27;</span>, &#123;<span class="attr">legacy</span>: <span class="literal">true</span>&#125;],</span><br><span class="line">        <span class="string">&#x27;react-native-reanimated/plugin&#x27;</span>,</span><br><span class="line">        [</span><br><span class="line">          <span class="string">&#x27;@babel/plugin-transform-modules-commonjs&#x27;</span>,</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">allowTopLevelThis</span>: <span class="literal">true</span>,</span><br><span class="line">          &#125;,</span><br><span class="line">        ],</span><br><span class="line">      ],</span><br><span class="line">      presets,</span><br><span class="line">      <span class="comment">// plugins,</span></span><br><span class="line">      <span class="comment">// env: &#123;</span></span><br><span class="line">      <span class="comment">//   production: &#123;</span></span><br><span class="line">      <span class="comment">//     plugins: [&#x27;transform-remove-console&#x27;],</span></span><br><span class="line">      <span class="comment">//   &#125;,</span></span><br><span class="line">      <span class="comment">// &#125;,</span></span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> svgLoaderConfiguration = &#123;</span><br><span class="line">  <span class="attr">test</span>: <span class="regexp">/\.svg$/</span>,</span><br><span class="line">  use: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">loader</span>: <span class="string">&#x27;@svgr/webpack&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  ],</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// This is needed for webpack to import static images in JavaScript files.</span></span><br><span class="line"><span class="keyword">const</span> imageLoaderConfiguration = &#123;</span><br><span class="line">  <span class="attr">test</span>: <span class="regexp">/\.(gif|jpe?g|png|svg)$/</span>,</span><br><span class="line">  use: &#123;</span><br><span class="line">    <span class="attr">loader</span>: <span class="string">&#x27;url-loader&#x27;</span>,</span><br><span class="line">    <span class="attr">options</span>: &#123;</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;[name].[ext]&#x27;</span>,</span><br><span class="line">      <span class="attr">esModule</span>: <span class="literal">false</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">entry</span>: [</span><br><span class="line">    <span class="string">&#x27;babel-polyfill&#x27;</span>,</span><br><span class="line">    <span class="comment">// load any web API polyfills</span></span><br><span class="line">    <span class="comment">// path.resolve(appDirectory, &#x27;polyfills-web.js&#x27;),</span></span><br><span class="line">    <span class="comment">// your web-specific entry file</span></span><br><span class="line">    path.resolve(appDirectory, <span class="string">&#x27;index.web.js&#x27;</span>),</span><br><span class="line">  ],</span><br><span class="line"></span><br><span class="line">  <span class="comment">// configures where the build ends up</span></span><br><span class="line">  <span class="attr">output</span>: &#123;</span><br><span class="line">    <span class="attr">filename</span>: <span class="string">&#x27;bundle.web.js&#x27;</span>,</span><br><span class="line">    <span class="attr">path</span>: path.resolve(appDirectory, <span class="string">&#x27;dist&#x27;</span>),</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// ...the rest of your config</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">module</span>: &#123;</span><br><span class="line">    <span class="attr">rules</span>: [</span><br><span class="line">      babelLoaderConfiguration,</span><br><span class="line">      imageLoaderConfiguration,</span><br><span class="line">      svgLoaderConfiguration,</span><br><span class="line">      <span class="comment">// &#123;</span></span><br><span class="line">      <span class="comment">//   test: /\.(tsx|ts)$/,</span></span><br><span class="line">      <span class="comment">//   exclude: /node_modules/,</span></span><br><span class="line">      <span class="comment">//   loader: &#x27;ts-loader&#x27;,</span></span><br><span class="line">      <span class="comment">// &#125;,</span></span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="attr">resolve</span>: &#123;</span><br><span class="line">    <span class="comment">// This will only alias the exact import &quot;react-native&quot;</span></span><br><span class="line">    <span class="attr">alias</span>: &#123;</span><br><span class="line">      <span class="string">&#x27;react-native$&#x27;</span>: <span class="string">&#x27;react-native-web&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// If you&#x27;re working on a multi-platform React Native app, web-specific</span></span><br><span class="line">    <span class="comment">// module implementations should be written in files using the extension</span></span><br><span class="line">    <span class="comment">// `.web.js`.</span></span><br><span class="line">    <span class="attr">extensions</span>: [</span><br><span class="line">      <span class="string">&#x27;.web.js&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;.web.jsx&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;.js&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;.jsx&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;.tsx&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;.ts&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;.web.tsx&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;.web.ts&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;component.js&#x27;</span>,</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">      <span class="attr">template</span>: path.join(__dirname, <span class="string">&#x27;./index.html&#x27;</span>), <span class="comment">// 指定模板路径</span></span><br><span class="line">      <span class="attr">filename</span>: <span class="string">&#x27;index.html&#x27;</span>, <span class="comment">// 指定文件名</span></span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="keyword">new</span> webpack.HotModuleReplacementPlugin(),</span><br><span class="line">    <span class="keyword">new</span> webpack.DefinePlugin(&#123;</span><br><span class="line">      <span class="comment">// 此处特别说明，是为了兼容RN和RNW之间的一个全局变量而特别加上的</span></span><br><span class="line">      <span class="comment">// 具体可以看RNW的作者Necolas的说明</span></span><br><span class="line">      <span class="comment">// &lt;https://github.com/necolas/react-native-web/issues/349&gt;</span></span><br><span class="line">      <span class="attr">__DEV__</span>: <span class="built_in">JSON</span>.stringify(<span class="literal">true</span>),</span><br><span class="line">      <span class="attr">process</span>: &#123;<span class="attr">env</span>: &#123;&#125;&#125;,</span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="keyword">new</span> webpack.EnvironmentPlugin(&#123;<span class="attr">JEST_WORKER_ID</span>: <span class="literal">null</span>&#125;),</span><br><span class="line">  ],</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>3.根目录新建  <code>web/index.html</code> 文件</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span></span></span><br><span class="line"><span class="tag">      <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no&quot;</span></span></span><br><span class="line"><span class="tag">    /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- &lt;meta name=&quot;theme-color&quot; content=&quot;#000000&quot; /&gt; --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>安全监测<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.bootcss.com/jsencrypt/3.0.0-beta.1/jsencrypt.js&quot;</span>&gt;</span> <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">      <span class="keyword">@media</span> <span class="keyword">only</span> screen <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">700px</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">html</span>,</span></span><br><span class="line"><span class="css">        <span class="selector-tag">body</span> &#123;</span></span><br><span class="line"><span class="css">          <span class="comment">/* 14/(375/100) */</span></span></span><br><span class="line"><span class="css">          <span class="attribute">font-size</span>: <span class="number">3.73333333333vw</span>;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">      <span class="keyword">@media</span> <span class="keyword">only</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">700px</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">html</span>,</span></span><br><span class="line"><span class="css">        <span class="selector-tag">body</span> &#123;</span></span><br><span class="line"><span class="css">          <span class="attribute">font-size</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">        <span class="comment">/* #app-root &#123;</span></span></span><br><span class="line"><span class="comment"><span class="css">          max-width: 700px;</span></span></span><br><span class="line"><span class="comment"><span class="css">        &#125; */</span></span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">body</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">justify-content</span>: center;</span></span><br><span class="line"><span class="css">            <span class="comment">/* align-items: center; */</span></span></span><br><span class="line"><span class="css">            <span class="attribute">display</span>: flex;</span></span><br><span class="line"><span class="css">            <span class="attribute">height</span>: <span class="number">100vh</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">overflow</span>: hidden;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-id">#app-root</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">display</span>: flex;</span></span><br><span class="line"><span class="css">        <span class="attribute">flex</span>: <span class="number">1</span> <span class="number">1</span> <span class="number">100%</span>;</span></span><br><span class="line"><span class="css">        <span class="comment">/* height: 100vh; */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>:<span class="number">100%</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">max-width</span>: <span class="number">700px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">align-self</span>: center;</span></span><br><span class="line"><span class="css">        <span class="attribute">flex-direction</span>: column;</span></span><br><span class="line"><span class="css">        <span class="attribute">overflow</span>: hidden;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app-root&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>4.根目录新建 <code>index.web.js</code> 文件</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//index.web.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123;AppRegistry&#125; <span class="keyword">from</span> <span class="string">&#x27;react-native&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;name <span class="keyword">as</span> appName&#125; <span class="keyword">from</span> <span class="string">&#x27;./app.json&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">&#x27;./App.js&#x27;</span>;</span><br><span class="line"></span><br><span class="line">AppRegistry.registerComponent(appName, <span class="function">() =&gt;</span> App);</span><br><span class="line">AppRegistry.runApplication(appName, &#123;</span><br><span class="line">  <span class="attr">initialProps</span>: &#123;&#125;,</span><br><span class="line">  <span class="attr">rootTag</span>: <span class="built_in">document</span>.getElementById(<span class="string">&#x27;app-root&#x27;</span>),</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>5.配置 package.json 启动命令</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot;web&quot;: &quot;webpack serve --mode=development --config ./web/webpack.config.js&quot;,</span><br><span class="line">&quot;build-web&quot;: &quot;webpack --mode=production --config ./web/webpack.config.js&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>6.现在可以启动项目了</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn web</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+    
+    <div class="post__license">
+        <p>
+            <strong>本文作者：</strong>宝生
+        </p>
+        <p>
+            <strong>
+                本文链接：
+            </strong>
+            <a href="https://liuios.github.io/2022/12/09/react-native-%E9%85%8D%E7%BD%AEreact-native-web/">https://liuios.github.io/2022/12/09/react-native-%E9%85%8D%E7%BD%AEreact-native-web/</a>
+        </p>
+        
+    </div>
+ 
+    <div class="post-footer__meta"><p>更新于 2022-12-09</p></div> 
+    <div class="post-entry__tags"><a href="/tags/react-native/" class="post-tags__link button"># react-native</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="/2022/02/16/%E6%90%9E%E6%87%82DNS/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            搞懂DNS
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>评论</h4>
+    
+    
+    
+    <div id="valine_container" class="valine_thread"></div>
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+     
+    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2022 <a href="/">宝生的博客</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.css">
+
+    
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.js"></script>
+
+    <script>
+        let lazyloadT = Boolean('false'),
+            auto_fancybox = Boolean('true')
+        if (auto_fancybox) {
+            $(".post__content").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        } else {
+            $(".post__content").find("fancybox").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+    
+    
+    <script>
+        function loadComment() {
+            let e;
+            (e = document.createElement("script")).src = 'https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js',
+            document.body.appendChild(e);
+            e.onload = () => {
+                var valineConfig = {"appId":"ODBJnxOXlHO3QooAbKpprTQF-gzGzoHsz","appKey":"l0E6n9ofbixyqyFBJUajeFU0","placeholder":"抢沙发～","path":null,"avatar":"robohash","meta":["nick","mail","link"],"pageSize":null,"lang":"zh-CN","visitor":true,"highlight":true,"avatarForce":null,"recordIP":null,"serverURLs":null,"enableQQ":null,"requiredFields":[],"emojiCDN":null,"emojiMaps":null};
+                valineConfig.el = '#valine_container';
+                for (var i in valineConfig) {
+                    if (valineConfig[i] === null) delete valineConfig[i];
+                }
+                new Valine(valineConfig);
+            };
+        }
+    
+        var runningOnBrowser = typeof window !== "undefined";
+        var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+        var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+    
+        setTimeout(function () {
+            if (!isBot && supportsIntersectionObserver) {
+                var comment_observer = new IntersectionObserver(function(entries) {
+                    if (entries[0].isIntersecting) {
+                        loadComment();
+                        comment_observer.disconnect();
+                    }
+                }, { threshold: [0] });
+                comment_observer.observe(document.getElementById('comment'));
+            } else {
+                loadComment();
+            }
+        }, 1);
+    </script>
+
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>
