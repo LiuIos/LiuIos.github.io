@@ -16,13 +16,13 @@
     <!--icon-->
 
     
-        <link rel="shortcut icon" href="https://cdn.staticaly.com/gh/LiuIos/picBed@master/favicon.ico">
+        <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/favicon.ico">
     
     
-        <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.staticaly.com/gh/LiuIos/picBed@master/favicon.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/favicon.png">
     
     
-        <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.staticaly.com/gh/LiuIos/picBed@master/%E4%B9%A6%E7%B1%8D.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/%E4%B9%A6%E7%B1%8D.png">
     
     
     
@@ -48,13 +48,13 @@
 <meta property="og:site_name" content="宝生的博客">
 <meta property="og:description" content="设计一个支持数百万用户的系统具有挑战性，这是一个需要不断完善和无尽改进的旅程。在本章中，我们构建了一个支持单个用户的系统，并逐渐将其扩展为数百万用户提供服务。阅读本章后，您将掌握一些技术，这些技术将帮助您破解系统设计面试问题。  单服务器设置千里之行始于足下，构建一个复杂的系统也是这样。从很简单的开始，所有程序都在单个服务器上运行。如图1-1所示，单服务器设置中，所有的内容都在一台服务器上运行，w">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.staticaly.com/gh/LiuIos/picBed@master/image-20230515154352983.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/image-20230515154352983.png">
 <meta property="article:published_time" content="2023-05-15T07:42:33.000Z">
-<meta property="article:modified_time" content="2023-05-15T09:51:54.468Z">
+<meta property="article:modified_time" content="2023-10-26T01:59:55.122Z">
 <meta property="article:author" content="刘宝生">
 <meta property="article:tag" content="-书籍 -系统设计面试">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.staticaly.com/gh/LiuIos/picBed@master/image-20230515154352983.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/image-20230515154352983.png">
 
 
     
@@ -188,16 +188,16 @@
 <article class="post post__with-toc content-card">
     <div class="post__header">
     
-        <div class="post-thumbnail" style="background-image: url('https://cdn.staticaly.com/gh/LiuIos/picBed@master/image-20230515154352983.png');"></div>
+        <div class="post-thumbnail" style="background-image: url('https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/image-20230515154352983.png');"></div>
     
 </div>
     <div class="post__content">
         <p>设计一个支持数百万用户的系统具有挑战性，这是一个需要不断完善和无尽改进的旅程。在本章中，我们构建了一个支持单个用户的系统，并逐渐将其扩展为数百万用户提供服务。阅读本章后，您将掌握一些技术，这些技术将帮助您破解系统设计面试问题。</p>
 <hr>
 <h3 id="单服务器设置"><a href="#单服务器设置" class="headerlink" title="单服务器设置"></a>单服务器设置</h3><p>千里之行始于足下，构建一个复杂的系统也是这样。从很简单的开始，所有程序都在单个服务器上运行。如图1-1所示，单服务器设置中，所有的内容都在一台服务器上运行，web app, 数据库，缓存等。</p>
-<p><img src="https://cdn.staticaly.com/gh/LiuIos/picBed@master/image-20230515154707662.png" alt="image-20230515154707662"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/image-20230515154707662.png" alt="image-20230515154707662"></p>
 <p>要了解此设置，调查请求流和流量来源是有帮助的。让我们先看看请求流程（图1-2）。</p>
-<p><img src="https://cdn.staticaly.com/gh/LiuIos/picBed@master/image-20230515154939505.png" alt="image-20230515154939505"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/image-20230515154939505.png" alt="image-20230515154939505"></p>
 <p>1.用户通过域名访问网站，例如api.mysite.com。通常，域名系统（DNS）是由第三方提供的付费服务，而不是由我们的服务器托管。</p>
 <p>2.互联网协议（IP）地址返回到浏览器或移动应用程序。在示例中，返回IP地址15.125.23.214。</p>
 <p>3.一旦获得IP地址，超文本传输协议（HTTP）[1]请求将直接发送到您的Web服务器。</p>
@@ -210,10 +210,10 @@
 </li>
 </ul>
 <p><em>GET /users/12 – Retrieve user object for id = 12</em></p>
-<img src="https://cdn.staticaly.com/gh/LiuIos/picBed@master/image-20230515155228240.png" alt="image-20230515155253438" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/image-20230515155228240.png" alt="image-20230515155253438" style="zoom:50%;" />
 
 <h3 id="数据库-Database"><a href="#数据库-Database" class="headerlink" title="数据库(Database)"></a>数据库(<strong>Database</strong>)</h3><p>随着用户群的增长，一台服务器是不够的，我们需要多台服务器：一台用于网络/移动流量，另一台用于数据库（图1-3）。分离网络/移动流量（网络层）和数据库（数据层）服务器允许它们独立扩展。</p>
-<img src="https://cdn.staticaly.com/gh/LiuIos/picBed@master/image-20230515160146336.png" alt="image-20230515160146336" style="zoom: 50%;" />
+<img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/image-20230515160146336.png" alt="image-20230515160146336" style="zoom: 50%;" />
 
 <h3 id="使用哪些数据库？"><a href="#使用哪些数据库？" class="headerlink" title="使用哪些数据库？"></a>使用哪些数据库？</h3><p>可以选择关系型数据库和非关系型数据库，具体区别如下：</p>
 <ul>
@@ -236,7 +236,7 @@
 <p>基于以上垂直扩展以上限制，水平扩展更适合大型应用，</p>
 <p>在之前的设计中，用户直接连接到web服务器。如果web服务器处于离线状态，用户将无法访问该网站。在另一种情况下，如果许多用户同时访问web服务器，当访问量达到web服务器的负载限制，会出现响应较慢或无法连接到服务器的情况，而负载均衡器可以有效解决这些问题。</p>
 <h3 id="负载均衡器"><a href="#负载均衡器" class="headerlink" title="负载均衡器"></a>负载均衡器</h3><p>负载均衡器在负载平衡集中定义的Web服务器之间均匀分配传入流量。图1-4显示了负载均衡器的工作原理。</p>
-<img src="https://cdn.staticaly.com/gh/LiuIos/picBed@master/image-20230515160724365.png" alt="image-20230515160724365" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/image-20230515160724365.png" alt="image-20230515160724365" style="zoom:50%;" />
 
 <p>如图1-4所示，用户直接连接到负载均衡器的公共IP。通过此设置，客户端无法再直接访问网络服务器。为了提高安全性，私有IP用于服务器之间的通信。专用IP是只能在同一网络中的服务器之间访问的IP地址；然而，它无法通过互联网访问。负载均衡器通过专用IP与Web服务器通信。</p>
 <p>在图1-4中，在添加负载均衡器和第二个Web服务器后，我们成功解决了故障转移问题，并提高了Web层的可用性。详情如下：</p>
@@ -247,7 +247,7 @@
 <p>现在网络层看起来不错，数据层呢？当前设计有一个数据库，因此它不支持故障转移和冗余。数据库复制(Database replication)是解决这些问题的常见技术。让我们来看看。</p>
 <h3 id="数据库复制"><a href="#数据库复制" class="headerlink" title="数据库复制"></a>数据库复制</h3><p>引自维基百科：“数据库复制可以在许多数据库管理系统中使用，通常原始（主）和副本（从）之间具有主/从关系”[3]。</p>
 <p>master数据库通常只支持写操作,slave数据库从主数据库获取数据副本，slave只支持读取操作。所有数据修改命令（如insert、delete或update）都必须发送到主数据库。大多数应用程序读操作的比例远大于写， 因此，系统中从数据库的数量通常大于主数据库的数量。图1-5显示了一个master数据库和多个slave数据库。</p>
-<img src="https://cdn.staticaly.com/gh/LiuIos/picBed@master/image-20230515161358406.png" alt="image-20230515161358406" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/image-20230515161358406.png" alt="image-20230515161358406" style="zoom:50%;" />
 
 <p>数据库复制的优势：</p>
 <ul>
@@ -261,7 +261,7 @@
 <li>如果master数据库离线，slave数据库将升级为新的master数据库。所有数据库操作将临时在新的主数据库上执行。新的slave数据库将立即取代旧的数据库进行数据复制。在生产项目中，升级一个新的主数据库更加复杂，因为从数据库中的数据可能不是最新的。丢失的数据需要通过运行数据恢复脚本进行更新。虽然其他一些复制方法，如多台master主机和循环复制，但会使配置更加复杂, 这里超出了讨论的范围。感兴趣的读者可以参考这些文章[4][5]。</li>
 </ul>
 <p>图1-6显示了添加负载平衡器和数据库复制后的系统设计。</p>
-<img src="https://cdn.staticaly.com/gh/LiuIos/picBed@master/image-20230515161831946.png" alt="image-20230515161831946" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/image-20230515161831946.png" alt="image-20230515161831946" style="zoom:50%;" />
 
 <p>让我们看看设计：：</p>
 <ul>
@@ -279,10 +279,10 @@
 <p>现在，您对网络和数据层有了扎实的了解，是时候提高负载/响应时间了。这可以通过添加缓存层并将静态内容（JavaScript/CSS/图像/视频文件）转移到内容交付网络（CDN）来完成。</p>
 <h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><p>缓存是一个临时存储区域，将昂贵响应或经常访问的数据的结果存储在内存中，以便更快地收到后续请求。如图1-6所示，每次加载新网页时，都会执行一个或多个数据库调用来获取数据。重复调用数据库会对应用程序性能产生很大影响。缓存可以缓解这个问题。</p>
 <h3 id="缓存层"><a href="#缓存层" class="headerlink" title="缓存层"></a>缓存层</h3><p>缓存层是一个临时数据存储层，比数据库快得多。拥有单独的缓存层的好处包括更好的系统性能，减少数据库工作负载的能力，以及独立扩展缓存层的能力。图1-7显示了缓存服务器的可能设置：</p>
-<p><img src="https://cdn.staticaly.com/gh/LiuIos/picBed@master/image-20230515163118739.png" alt="image-20230515163118739"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/image-20230515163118739.png" alt="image-20230515163118739"></p>
 <p>收到请求后，Web服务器首先检查缓存是否有可用的响应。如果有，它会将数据发回给客户端。如果没有，它会查询数据库，将响应存储在缓存中，并将其发送回客户端。这种缓存策略称为通读缓存。根据数据类型、大小和访问模式，可以使用其他缓存策略。之前的一项研究解释了不同的缓存策略是如何工作的[6]。</p>
 <p>与缓存服务器交互很简单，因为大多数缓存服务器为常见编程语言提供API。以下代码片段显示了典型的Memcached API：</p>
-<p><img src="https://cdn.staticaly.com/gh/LiuIos/picBed@master/image-20230515163233804.png" alt="image-20230515163233804"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/image-20230515163233804.png" alt="image-20230515163233804"></p>
 <h3 id="使用缓存的注意事项"><a href="#使用缓存的注意事项" class="headerlink" title="使用缓存的注意事项"></a>使用缓存的注意事项</h3><p>以下是使用缓存系统的一些注意事项：</p>
 <ul>
 <li><p>决定何时使用缓存。当数据被频繁读取但很少修改时，请考虑使用缓存。由于缓存数据存储在易失性内存中，因此缓存服务器不是持久数据的理想选择。例如，如果缓存服务器重新启动，内存中的所有数据都会丢失。因此，重要数据应保存在持久数据存储中。</p>
@@ -294,7 +294,7 @@
 <li><p>缓解故障：单个缓存服务器代表潜在的单点故障（SPOF），在维基百科中定义如下：“单点故障（SPOF）是系统的一部分，如果失败，将阻止整个系统工作”[8]。因此，建议跨不同数据中心的多个缓存服务器，以避免SPOF。另一种推荐的方法是以一定百分比过度配置所需的内存。随着内存使用量的增加，这提供了一个缓冲区。</p>
 </li>
 </ul>
-<img src="https://cdn.staticaly.com/gh/LiuIos/picBed@master/image-20230515163714698.png" alt="image-20230515163714698" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/image-20230515163714698.png" alt="image-20230515163714698" style="zoom:50%;" />
 
 <ul>
 <li>驱逐政策：一旦缓存已满，任何向缓存添加项目的请求都可能导致现有项目被删除。这被称为缓存驱逐。最近使用最少（LRU）是最受欢迎的缓存驱逐政策。可以采用其他驱逐政策，如最不常用（LFU）或先到先出（FIFO），以满足不同的用例。</li>
@@ -302,10 +302,10 @@
 <h3 id="内容交付网络（CDN）"><a href="#内容交付网络（CDN）" class="headerlink" title="内容交付网络（CDN）"></a>内容交付网络（CDN）</h3><p>CDN是一个地理上分散的服务器网络，用于提供静态内容。CDN服务器缓存静态内容，如图像、视频、CSS、JavaScript文件等。</p>
 <p>动态内容缓存是一个相对较新的概念，超出了本书的范围。它允许缓存基于请求路径、查询字符串、cookie和请求标头的HTML页面。有关此的更多信息，请参阅参考材料[9]中提到的文章。这本书重点介绍如何使用CDN缓存静态内容。</p>
 <p>以下是CDN在高层的工作方式：当用户访问网站时，最靠近用户的CDN服务器将提供静态内容。直觉上，来自CDN服务器的用户越大，网站加载速度就越慢。例如，如果CDN服务器在旧金山，洛杉矶的用户将比欧洲用户更快地获得内容。图1-9是一个很好的例子，显示了CDN如何改善加载时间。</p>
-<img src="https://cdn.staticaly.com/gh/LiuIos/picBed@master/image-20230515163954834.png" alt="image-20230515163954834" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/image-20230515163954834.png" alt="image-20230515163954834" style="zoom:50%;" />
 
 <p>图1-10展示了CDN工作流程。</p>
-<img src="https://cdn.staticaly.com/gh/LiuIos/picBed@master/image-20230515164043970.png" alt="image-20230515164043970" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/image-20230515164043970.png" alt="image-20230515164043970" style="zoom:50%;" />
 
 <p>1.用户A尝试使用图像URL获取image.png。URL的域由CDN提供商提供。以下两个图像URL是用于演示亚马逊和Akamai CDN上图像URL的示例：</p>
 <ul>
@@ -336,31 +336,31 @@
 </li>
 </ul>
 <p>图1-11显示了添加CDN和缓存后的设计。</p>
-<img src="https://cdn.staticaly.com/gh/LiuIos/picBed@master/image-20230515164940741.png" alt="image-20230515164940741" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/image-20230515164940741.png" alt="image-20230515164940741" style="zoom:50%;" />
 
 <p>1.静态资产（JS、CSS、图像等）不再由Web服务器提供服务。为了获得更好的性能，它们是从CDN中获取的。</p>
 <p>2.通过缓存数据来减轻数据库负载。</p>
 <h3 id="无状态网络层（Stateless-web-tier）"><a href="#无状态网络层（Stateless-web-tier）" class="headerlink" title="无状态网络层（Stateless web tier）"></a>无状态网络层（Stateless web tier）</h3><p>现在考虑水平扩展Web层，为此，我们需要将state 数据移出web层（例如用户session数据）。一个好的做法是将session数据存储在持久性存储中，如关系数据库或NoSQL。集群中的每个web服务器都可以访问数据库中的state数据。这被称为无状态web层。</p>
 <h3 id="有状态架构-stateful"><a href="#有状态架构-stateful" class="headerlink" title="有状态架构(stateful)"></a><strong>有状态架构(stateful)</strong></h3><p>有状态server和无状态server有以下区别： 在多个请求中，有状态server会记住client数据（状态），无状态server不做任何记录。</p>
 <p>图1-12展示了有状态（stateful）架构：</p>
-<img src="https://cdn.staticaly.com/gh/LiuIos/picBed@master/image-20230515165542674.png" alt="image-20230515165542674" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/image-20230515165542674.png" alt="image-20230515165542674" style="zoom:50%;" />
 
 <p>在图1-12中，UserA的session数据和个人资料存储在server1中。要对用户A进行身份验证，必须将HTTP请求路由到server1。如果请求被发送到server2等其他服务器，身份验证将失败，因为server2不包含UserA的会话数据。同样，来自user B的所有HTTP请求都必须路由到server2；来自UserC的所有请求都必须发送到server3。</p>
 <p>这样会产生问题：来自同一client的每个请求都必须路由到同一server。虽然这可以通过大多数负载平衡器中的粘性 session来实现[10]；但这会这增加开销。使用这种方法，添加或删除服务器要困难得多，处理服务器故障也很困难。</p>
 <h3 id="无状态架构-stateless"><a href="#无状态架构-stateless" class="headerlink" title="无状态架构(stateless)"></a><strong>无状态架构(stateless)</strong></h3><p>图1-13显示了无状态架构。</p>
-<img src="https://cdn.staticaly.com/gh/LiuIos/picBed@master/image-20230515165901823.png" alt="image-20230515165901823" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/image-20230515165901823.png" alt="image-20230515165901823" style="zoom:50%;" />
 
 <p>在这种无状态架构中，用户的HTTP请求可以发送到任何web服务器。web服务器从共享数据库中获取状态数据。状态数据存储在共享数据存储中，不在web服务器内，使得系统更简单、更健壮且可扩展。</p>
 <p>图1-14展示了无状态web层的架构设计：</p>
-<img src="https://cdn.staticaly.com/gh/LiuIos/picBed@master/image-20230515170030404.png" alt="image-20230515170030404" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/image-20230515170030404.png" alt="image-20230515170030404" style="zoom:50%;" />
 
 <p>在图1-14中，我们将session数据移出web层，并将其存储在持久数据存储中。共享数据存储可以是关系数据库、Memcached/Redis、NoSQL等。推荐使用NoSQL数据存，因为其易于扩展。自动缩放(Autoscaling)意味着可以根据流量负载自动添加或删除web服务器。从web服务器中删除状态数据后，可以根据流量负载添加或删除服务器，从而轻松实现web层的自动扩展。</p>
 <p>当网站发展迅速，在国际上吸引了大量用户。为了在世界范围内提升可用性和更好的用户体验，支持多数据中心至关重要。</p>
 <h3 id="数据中心（Data-centers）"><a href="#数据中心（Data-centers）" class="headerlink" title="数据中心（Data centers）"></a><strong>数据中心（Data centers）</strong></h3><p>图1-15显示了带有两个数据中心的架构设计。常规操作中，用户被路由到最近的数据中心，分配到美国东部和美国西部的流量分别为x%和（100–x%）。geoDNS可以提供这样的域名解析服务，它基于用户的地理位置将域名解析为不同IP地址。</p>
-<img src="https://cdn.staticaly.com/gh/LiuIos/picBed@master/image-20230515170311613.png" alt="image-20230515170311613" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/image-20230515170311613.png" alt="image-20230515170311613" style="zoom:50%;" />
 
 <p>如果数据中心出现任何重大故障，我们会将所有流量转移到另外健康的数据中心。在图1-16中，ata center 2 (US-West）处于离线状态，100%的流量路由到data center 1 (US-East).</p>
-<img src="https://cdn.staticaly.com/gh/LiuIos/picBed@master/image-20230515170503641.png" alt="image-20230515170503641" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/image-20230515170503641.png" alt="image-20230515170503641" style="zoom:50%;" />
 
 <p>要实现多数据中心配置，必须解决几个技术难题：</p>
 <ul>
@@ -370,10 +370,10 @@
 </ul>
 <p>为了进一步扩展我们的系统，我们需要解耦系统的不同组件，以便它们可以独立地进行扩展。消息队列被很多实际分布式系用来解决解耦问题。</p>
 <h3 id="消息队列（Message-Queue）"><a href="#消息队列（Message-Queue）" class="headerlink" title="消息队列（Message Queue）"></a><strong>消息队列（Message Queue）</strong></h3><p>消息队列是存储在内存中的持久组件，支持异步通信。它充当缓冲区并分发异步请求。消息队列的基本架构很简单。输入服务（称为生产者/发布者）创建消息，并将其发布到消息队列。其他服务或服务器（称为使用者/订阅者）连接到队列，并执行消息定义的操作。模型如图1-17所示</p>
-<p><img src="https://cdn.staticaly.com/gh/LiuIos/picBed@master/image-20230515170833714.png" alt="image-20230515170833714"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/image-20230515170833714.png" alt="image-20230515170833714"></p>
 <p>解耦使得消息队列在构建可扩展、可靠的应用时更受到青睐。通过使用消息队列，当消费者无法处理消息时，生产者依然可以向队列发布消息；生产者不可用时，消费者也可以从队列中读取消息。</p>
 <p>考虑下面情况：应用程序支持照片定制，包括裁剪、锐化、模糊等。这些定制任务需要一定时间来完成。在图1-18中，web服务器将照片处理任务发布到消息队列。照片处理worker从消息队列中提取任务，并异步执行照片自定义任务。生产者和消费者可以独立扩展。当队列变大时，会添加更多的er以减少处理时间。但是，如果队列大部分时间都是空的，则可以减少worker的数量。</p>
-<p><img src="https://cdn.staticaly.com/gh/LiuIos/picBed@master/image-20230515171101891.png" alt="image-20230515171101891"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/image-20230515171101891.png" alt="image-20230515171101891"></p>
 <h3 id="logging、指标-metric-、自动化"><a href="#logging、指标-metric-、自动化" class="headerlink" title="logging、指标(metric)、自动化"></a><strong>logging、指标(metric)、自动化</strong></h3><p>当在少量的服务器上运行的小型网站时，采用log日志、metric和自动化支持是规范的做法，但不是必要的。然而，现在你的网站已经成长为一家大型企业，对这些工具的使用是必不可少的。</p>
 <p>logging：监控错误日志很重要，因为它有助于识别系统中的错误和问题。您可以在每个服务器级别监视错误日志，或者使用工具将它们聚合到一个集中的服务中，以便于搜索和查看。 指标：收集不同类型的指标有助于我们获得业务洞察力，并了解系统的健康状态。以下一些指标很有用：</p>
 <ul>
@@ -383,7 +383,7 @@
 </ul>
 <p>自动化：当一个系统变得庞大复杂时，我们需要构建或利用自动化工具来提高生产力。持续集成是一种很好的做法，在这种做法中，每个代码签入都通过自动化进行验证，从而允许团队尽早发现问题。此外，自动化构建、测试、部署程序等，可以显著提高开发人员的生产率。</p>
 <h3 id="添加了消息队列和不同的工具的架构设计"><a href="#添加了消息队列和不同的工具的架构设计" class="headerlink" title="添加了消息队列和不同的工具的架构设计"></a><strong>添加了消息队列和不同的工具的架构设计</strong></h3><p>图1-19显示了更新后的设计。由于空间限制，图中只显示了一个数据中心。1.该设计包括一个消息队列，有助于使系统解耦和故障恢复。 2.包括日志记录、监控、metric和自动化工具</p>
-<img src="https://cdn.staticaly.com/gh/LiuIos/picBed@master/image-20230515171353790.png" alt="image-20230515171353790" style="zoom:100%;" />
+<img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/image-20230515171353790.png" alt="image-20230515171353790" style="zoom:100%;" />
 
 <p>随着数据规模不断增长，数据层也会过载，所以需要扩展数据层</p>
 <h3 id="数据库扩展"><a href="#数据库扩展" class="headerlink" title="数据库扩展"></a><strong>数据库扩展</strong></h3><p>两种方式扩展：垂直扩展和水平扩展</p>
@@ -393,14 +393,14 @@
 <li>单点故障风险更大</li>
 <li>垂直扩展的总体成本很高。性能强大的服务器要昂贵得多。水平缩放水平缩放也称为分片，是添加更多服务器的实践。图1-20比较了垂直缩放和水平缩放。</li>
 </ul>
-<img src="https://cdn.staticaly.com/gh/LiuIos/picBed@master/image-20230515171633578.png" alt="image-20230515171633578" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/image-20230515171633578.png" alt="image-20230515171633578" style="zoom:50%;" />
 
 <p>分片（sharding）将大型数据库分成更小、更易于管理的部分，称为分片。每个分片共享相同的模式，尽管每个分片上的实际数据对该分片是唯一的。</p>
 <p>图1-21显示了分片数据库的示例。根据用户ID将数据分配给不同数据库服务器。访问数据时，使用哈希函数来查找相应的分片。在我们的示例中，使用user_id%4作为哈希函数。如果取余结果等于0，则使用分片0存储和获取数据。如果结果等于1，则使用分片1。同样的逻辑也适用于其他分片。</p>
-<img src="https://cdn.staticaly.com/gh/LiuIos/picBed@master/image-20230515171816802.png" alt="image-20230515171816802" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/image-20230515171816802.png" alt="image-20230515171816802" style="zoom:50%;" />
 
 <p>图1-22显示了分片数据库中的用户表。</p>
-<img src="https://cdn.staticaly.com/gh/LiuIos/picBed@master/image-20230515171854068.png" alt="image-20230515171854068" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/image-20230515171854068.png" alt="image-20230515171854068" style="zoom:50%;" />
 
 <p>在执行分片(sharding)策略时最重要因素是选择分片密钥(sharding key)。sharding key, 又称为partition key）由一个或多个列组成，这些列决定数据的分布方式。如图1-22所示，“用户id”是sharding key。通过sharding key，路由到正确的数据库，对数据进行修改和检索数据。在选择sharding key时，最重要的标准之一是选择一个可以均匀分布数据的列。</p>
 <p>sharding是一种很好的扩展数据库的技术，但它远不是一个完美的解决方案。它给系统带来了新的挑战：</p>
@@ -408,7 +408,7 @@
 <p><strong>名人问题:</strong> 这也被称为热点key问题。对特定shard的过度访问可能会导致服务器过载。想象一下，凯蒂·佩里（Katy Perry）、贾斯汀·比伯（Justin Bieber）和Lady Gaga的数据在同一块碎片上。对于社交应用程序，该碎片将被读取操作淹没。为了解决这个问题，需要为每个名人分配一个碎片。每个shard甚至可能需要进一步的分区。</p>
 <p><strong>join和反范式：</strong> 一旦数据库在多个服务器上被切分，就很难跨数据库执行join操作。常见的解决方法是对数据库进行反范式化，以便在单个表中执行查询。</p>
 <p>在图 1-23 中，我们对数据库进行分片操作，以支持快速增长的数据流量。 同时，非关系功能的数据被存入 NoSQL ，以减少数据库负载。 这是一篇涵盖许多 NoSQL 用例的文章[14]。</p>
-<img src="https://cdn.staticaly.com/gh/LiuIos/picBed@master/image-20230515172633093.png" alt="image-20230515172633093" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/image-20230515172633093.png" alt="image-20230515172633093" style="zoom:50%;" />
 
 <h3 id="百万及百万以上的用户"><a href="#百万及百万以上的用户" class="headerlink" title="百万及百万以上的用户"></a><strong>百万及百万以上的用户</strong></h3><p>系统的扩展是一个迭代的过程。重复我们在本章学到的知识，让我们走得更远。当用户数达到百万以上时，需要更多细微的调整和新的策略，例如，将系统解耦到更小的服务。本章所学的将为后面的挑战打好基础，</p>
 <p>本章主要讲，如何扩展系统以支持数百万用户：</p>
@@ -440,7 +440,7 @@
         
     </div>
  
-    <div class="post-footer__meta"><p>更新于 2023-05-15</p></div> 
+    <div class="post-footer__meta"><p>更新于 2023-10-26</p></div> 
     <div class="post-entry__tags"><a href="/tags/%E4%B9%A6%E7%B1%8D-%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E9%9D%A2%E8%AF%95/" class="post-tags__link button"># -书籍 -系统设计面试</a></div> 
 </article>
 
