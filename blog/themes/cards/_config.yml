@@ -13,9 +13,9 @@ rss: /atom.xml
 head:
   # 网站图标
   favicon:
-    # ico: /img/favicon.ico
-    small:
-    medium: https://cdn.jsdelivr.net/gh/LiuIos/picBed/%E4%B9%A6%E7%B1%8D.png
+    ico: https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/favicon.ico
+    small: https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/favicon.png
+    medium: https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/%E4%B9%A6%E7%B1%8D.png
     apple_touch_icon:
     safari_pinned_tab:
 
@@ -69,7 +69,7 @@ cover:
   sitename: 个人博客
 
   # 若 avatar 配置不为空，则优先使用 avatar 覆盖 sitename
-  avatar: https://cdn.jsdelivr.net/gh/LiuIos/picBed/20210906172600.png
+  avatar: https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/20210906172600.png
 
   # sitename/avatar 下方的一句话介绍
   description: 笔记 🌈 ｜ 随笔 🌟 ｜ 技术 🚀

@@ -3,7 +3,7 @@ title: Mac sourcetree自动添加ssh key
 date: 2021-09-07 18:23:12
 tags: SourceTree
 categories: 技术
-thumbnail: https://cdn.jsdelivr.net/gh/LiuIos/picBed/20210907183411.png
+thumbnail: https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/20210907183411.png
 toc: false
 ---
 

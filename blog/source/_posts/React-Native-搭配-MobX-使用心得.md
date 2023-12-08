@@ -3,7 +3,7 @@ title: React Native 搭配 MobX 使用心得
 date: 2021-09-09 10:56:39
 tags: react-native
 categories: 技术
-thumbnail: https://cdn.jsdelivr.net/gh/LiuIos/picBed/20210909105918.png
+thumbnail: https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/20210909105918.png
 toc: true
 ---
 

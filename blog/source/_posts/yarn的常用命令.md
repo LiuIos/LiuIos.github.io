@@ -3,7 +3,7 @@ title: yarn的常用命令
 date: 2021-09-07 17:27:54
 tags: yarn
 categories: 技术
-thumbnail: https://cdn.jsdelivr.net/gh/LiuIos/picBed/20210907172943.png
+thumbnail: https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/20210907172943.png
 toc: true
 ---
 

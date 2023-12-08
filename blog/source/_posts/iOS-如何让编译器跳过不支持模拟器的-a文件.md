@@ -3,7 +3,7 @@ title: iOS 如何让编译器跳过不支持模拟器的.a文件
 date: 2022-01-18 14:27:55
 tags: iOS
 categories: 技术
-thumbnail: https://cdn.jsdelivr.net/gh/LiuIos/picBed/20220118143352.png
+thumbnail: https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/20220118143352.png
 toc: false
 ---
 

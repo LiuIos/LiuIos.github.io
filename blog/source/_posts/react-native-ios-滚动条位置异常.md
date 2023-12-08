@@ -8,7 +8,7 @@ toc: false
 
 > React native ScrollView FlatList 滚动条位置异常、错位
 
-![image-20220113144619480](https://cdn.jsdelivr.net/gh/LiuIos/picBed/image-20220113144619480.png)
+![image-20220113144619480](https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/image-20220113144619480.png)
 
 ### 解决方法
 

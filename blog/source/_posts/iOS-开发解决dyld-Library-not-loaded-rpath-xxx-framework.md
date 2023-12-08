@@ -3,7 +3,7 @@ title: "iOS 开发解决dyld: Library not loaded: @rpath/xxx.framework/ "
 date: 2021-09-07 17:06:20
 tags: iOS
 categories: 技术
-thumbnail: https://cdn.jsdelivr.net/gh/LiuIos/picBed/20210907170920.png
+thumbnail: https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/20210907170920.png
 toc: false
 ---
 
@@ -17,6 +17,6 @@ reason: image not found
 
 ### 解决办法
 
-![](https://cdn.jsdelivr.net/gh/LiuIos/picBed/20210907171430.png)
+![](https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/20210907171430.png)
 
-![](https://cdn.jsdelivr.net/gh/LiuIos/picBed/ttttt.png)
+![](https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/ttttt.png)

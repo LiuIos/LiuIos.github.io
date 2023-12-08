@@ -5,7 +5,7 @@ tags:
   - iOS
   - Android
 categories: 技术
-thumbnail: https://cdn.jsdelivr.net/gh/LiuIos/picBed/20210908100948.png
+thumbnail: https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/20210908100948.png
 toc: false
 ---
 

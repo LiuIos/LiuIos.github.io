@@ -5,7 +5,7 @@ layout: links
 links:
   - name: LiuIos github
     url: https://github.com/LiuIos
-    avatar: https://cdn.jsdelivr.net/gh/LiuIos/picBed/20210907085517.png
+    avatar: https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/20210907085517.png
     target: _blank
     backgroundColor: "#fff"
     textColor: "#444"
@@ -17,7 +17,7 @@ links:
 
   - name: MSDN,I Tell You
     url: https://msdn.itellyou.cn/
-    avatar: https://cdn.jsdelivr.net/gh/LiuIos/picBed/20210910145538.png
+    avatar: https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/20210910145538.png
     target: _blank
     backgroundColor: "#fff"
     textColor: "#444"
@@ -25,7 +25,7 @@ links:
 
   - name: 阡途应用商店
     url: http://www.tentod.com/
-    avatar: https://cdn.jsdelivr.net/gh/LiuIos/picBed/20220113150339.png
+    avatar: https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/20220113150339.png
     target: _blank
     backgroundColor: "#fff"
     textColor: "#444"

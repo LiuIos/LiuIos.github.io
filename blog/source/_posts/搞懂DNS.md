@@ -3,7 +3,7 @@ title: 搞懂DNS
 date: 2022-02-16 15:55:35
 tags: 网络
 categories: 技术
-thumbnail: https://cdn.jsdelivr.net/gh/LiuIos/picBed/20220216155844.png
+thumbnail: https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/20220216155844.png
 toc: true
 ---
 
@@ -40,7 +40,7 @@ DNS 即域名系统，全称是 **D**omain **N**ame **S**ystem。当我们在浏
 
 DNS 服务器有 3 种类型：根 DNS 服务器、顶级域（Top-Level Domain, TLD）DNS 服务器和权威 DNS 服务器。它们的层次结构如下图所示：
 
-![](https://cdn.jsdelivr.net/gh/LiuIos/picBed/123_2022-02-16_16-12-42-20220216162240899.png)
+![](https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/123_2022-02-16_16-12-42-20220216162240899.png)
 
 图片来源：《计算机网络：自顶向下方法》
 
@@ -76,7 +76,7 @@ DNS 服务器有 3 种类型：根 DNS 服务器、顶级域（Top-Level Domain,
 
 如下图，假设主机 `m.n.com` 想要获取主机 `a.b.com` 的 IP 地址，会经过以下几个步骤：
 
-![20220216162649_2022-02-16_16-30-27](https://cdn.jsdelivr.net/gh/LiuIos/picBed/20220216162649_2022-02-16_16-30-27.png)
+![20220216162649_2022-02-16_16-30-27](https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/20220216162649_2022-02-16_16-30-27.png)
 
 1. 首先，主机 `m.n.com` 向它的本地 DNS 服务器发送一个 DNS 查询报文，其中包含期待被转换的主机名 `a.b.com`；
 
@@ -108,7 +108,7 @@ DNS 服务器有 3 种类型：根 DNS 服务器、顶级域（Top-Level Domain,
 
 从理论上讲，**任何 DNS 查询既可以是递归的，也可以是迭代的**。下图的所有查询就都是递归的，不包含迭代。
 
-![20220216163701_2022-02-16_16-38-16](https://cdn.jsdelivr.net/gh/LiuIos/picBed/20220216163701_2022-02-16_16-38-16.png)
+![20220216163701_2022-02-16_16-38-16](https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/20220216163701_2022-02-16_16-38-16.png)
 
 那么，TLD 一定知道权威 DNS 服务器的 IP 地址吗？
 

@@ -4,7 +4,7 @@ date: 2021-09-08 10:40:14
 tags:
   - Android
 categories: 技术
-thumbnail: https://cdn.jsdelivr.net/gh/LiuIos/picBed/20210908104159.png
+thumbnail: https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/20210908104159.png
 toc: false
 ---
 
