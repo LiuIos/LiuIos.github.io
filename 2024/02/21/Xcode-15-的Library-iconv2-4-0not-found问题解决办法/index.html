@@ -31,30 +31,30 @@
     <!-- meta -->
 
 
-<title>react-native修改第三方包 | 宝生的博客</title>
+<title>Xcode 15 的Library &#34;iconv2.4.0&#34;not found问题解决办法 | 宝生的博客</title>
 
 
-    <meta name="keywords" content="react-native, Blog,Hexo,Theme,刘宝生,LiuIos">
+    <meta name="keywords" content="iOS, Blog,Hexo,Theme,刘宝生,LiuIos">
 
 
 
 
     <!-- OpenGraph -->
  
-    <meta name="description" content="使用第三方包的时候，经常需要修改内部源码来解决 bug 和实现效果，然而每次 yarn、npm install 之后，修改的代码又会被覆盖，让人抓狂，下面介绍一个好用的方法 👇 使用工具：patch-package 用法修改 package.json,添加 &quot;postinstall&quot;: &quot;patch-package&quot; 12345678&quot;scrip">
+    <meta name="description" content="1.首先在项目的targets 的build phases 移除iconv.2.4.0 2.然后在link binary witch libraries 添加 libiconv.tbd 和 libiconv.2.tbd 3.在项目的targets 的Other Linker Flags 添加-ld64">
 <meta property="og:type" content="article">
-<meta property="og:title" content="react-native修改第三方包">
-<meta property="og:url" content="https://liuios.github.io/2021/09/07/react-native%E4%BF%AE%E6%94%B9%E7%AC%AC%E4%B8%89%E6%96%B9%E5%8C%85/index.html">
+<meta property="og:title" content="Xcode 15 的Library &quot;iconv2.4.0&quot;not found问题解决办法">
+<meta property="og:url" content="https://liuios.github.io/2024/02/21/Xcode-15-%E7%9A%84Library-iconv2-4-0not-found%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/index.html">
 <meta property="og:site_name" content="宝生的博客">
-<meta property="og:description" content="使用第三方包的时候，经常需要修改内部源码来解决 bug 和实现效果，然而每次 yarn、npm install 之后，修改的代码又会被覆盖，让人抓狂，下面介绍一个好用的方法 👇 使用工具：patch-package 用法修改 package.json,添加 &quot;postinstall&quot;: &quot;patch-package&quot; 12345678&quot;scrip">
+<meta property="og:description" content="1.首先在项目的targets 的build phases 移除iconv.2.4.0 2.然后在link binary witch libraries 添加 libiconv.tbd 和 libiconv.2.tbd 3.在项目的targets 的Other Linker Flags 添加-ld64">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/20210907104054.png">
-<meta property="article:published_time" content="2021-09-07T10:18:07.583Z">
-<meta property="article:modified_time" content="2023-10-26T01:59:55.168Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/202402211512531.png">
+<meta property="article:published_time" content="2024-02-21T07:10:02.000Z">
+<meta property="article:modified_time" content="2024-02-21T07:15:54.487Z">
 <meta property="article:author" content="刘宝生">
-<meta property="article:tag" content="react-native">
+<meta property="article:tag" content="iOS">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/20210907104054.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/202402211512531.png">
 
 
     
@@ -151,10 +151,10 @@
 
 <div class="post-title">
     <h1 class="post-title__text">
-        react-native修改第三方包
+        Xcode 15 的Library &#34;iconv2.4.0&#34;not found问题解决办法
     </h1>
     <div class="post-title__meta">
-        <a href="/archives/2021/09/" class="post-meta__date button">2021-09-07</a>
+        <a href="/archives/2024/02/" class="post-meta__date button">2024-02-21</a>
         
     <span class="separate-dot"></span><a href="/categories/%E6%8A%80%E6%9C%AF/" class="button">技术</a>
 
@@ -171,26 +171,32 @@
 </div>
 
 
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%A6%96%E5%85%88%E5%9C%A8%E9%A1%B9%E7%9B%AE%E7%9A%84targets-%E7%9A%84build-phases-%E7%A7%BB%E9%99%A4iconv-2-4-0"><span class="toc-text">1.首先在项目的targets 的build phases 移除iconv.2.4.0</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%84%B6%E5%90%8E%E5%9C%A8link-binary-witch-libraries-%E6%B7%BB%E5%8A%A0-libiconv-tbd-%E5%92%8C-libiconv-2-tbd"><span class="toc-text">2.然后在link binary witch libraries 添加 libiconv.tbd 和 libiconv.2.tbd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%9C%A8%E9%A1%B9%E7%9B%AE%E7%9A%84targets-%E7%9A%84Other-Linker-Flags-%E6%B7%BB%E5%8A%A0-ld64"><span class="toc-text">3.在项目的targets 的Other Linker Flags 添加-ld64</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">文章目录</div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%A6%96%E5%85%88%E5%9C%A8%E9%A1%B9%E7%9B%AE%E7%9A%84targets-%E7%9A%84build-phases-%E7%A7%BB%E9%99%A4iconv-2-4-0"><span class="toc-text">1.首先在项目的targets 的build phases 移除iconv.2.4.0</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%84%B6%E5%90%8E%E5%9C%A8link-binary-witch-libraries-%E6%B7%BB%E5%8A%A0-libiconv-tbd-%E5%92%8C-libiconv-2-tbd"><span class="toc-text">2.然后在link binary witch libraries 添加 libiconv.tbd 和 libiconv.2.tbd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%9C%A8%E9%A1%B9%E7%9B%AE%E7%9A%84targets-%E7%9A%84Other-Linker-Flags-%E6%B7%BB%E5%8A%A0-ld64"><span class="toc-text">3.在项目的targets 的Other Linker Flags 添加-ld64</span></a></li></ol>
+    </div>
 
-<article class="post content-card">
+
+<article class="post post__with-toc content-card">
     <div class="post__header">
     
-        <div class="post-thumbnail" style="background-image: url('https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/20210907104054.png');"></div>
+        <div class="post-thumbnail" style="background-image: url('https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/202402211512531.png');"></div>
     
 </div>
     <div class="post__content">
-        <p>使用第三方包的时候，经常需要修改内部源码来解决 bug 和实现效果，然而每次 yarn、npm install 之后，修改的代码又会被覆盖，让人抓狂，下面介绍一个好用的方法 👇</p>
-<p>使用工具：<a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://github.com/ds300/patch-package">patch-package</a></p>
-<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>修改 package.json,添加<code> &quot;postinstall&quot;: &quot;patch-package&quot;</code></p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;android&quot;</span>: <span class="string">&quot;react-native run-android&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;ios&quot;</span>: <span class="string">&quot;react-native run-ios&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;start&quot;</span>: <span class="string">&quot;react-native start&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;test&quot;</span>: <span class="string">&quot;jest&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;lint&quot;</span>: <span class="string">&quot;eslint .&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;postinstall&quot;</span>: <span class="string">&quot;patch-package&quot;</span></span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
-
-<p>执行 <code>yarn add patch-package postinstall-postinstall -D</code></p>
-<p>修改第三方库后，</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npx patch-package [package-name]</span><br><span class="line">或</span><br><span class="line">yarn patch-package [package-name]</span><br></pre></td></tr></table></figure>
-
-<p>应用补丁</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn patch-package</span><br></pre></td></tr></table></figure>
-
+        <h3 id="1-首先在项目的targets-的build-phases-移除iconv-2-4-0"><a href="#1-首先在项目的targets-的build-phases-移除iconv-2-4-0" class="headerlink" title="1.首先在项目的targets 的build phases 移除iconv.2.4.0"></a>1.首先在项目的targets 的build phases 移除iconv.2.4.0</h3><p><img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/202402211514655.png"></p>
+<h3 id="2-然后在link-binary-witch-libraries-添加-libiconv-tbd-和-libiconv-2-tbd"><a href="#2-然后在link-binary-witch-libraries-添加-libiconv-tbd-和-libiconv-2-tbd" class="headerlink" title="2.然后在link binary witch libraries 添加 libiconv.tbd 和 libiconv.2.tbd"></a>2.然后在link binary witch libraries 添加 libiconv.tbd 和 libiconv.2.tbd</h3><p><img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/image-20240221151525420.png" alt="image-20240221151525420"></p>
+<h3 id="3-在项目的targets-的Other-Linker-Flags-添加-ld64"><a href="#3-在项目的targets-的Other-Linker-Flags-添加-ld64" class="headerlink" title="3.在项目的targets 的Other Linker Flags 添加-ld64"></a>3.在项目的targets 的Other Linker Flags 添加-ld64</h3>
     </div>
     
     <div class="post__license">
@@ -201,43 +207,29 @@
             <strong>
                 本文链接：
             </strong>
-            <a href="https://liuios.github.io/2021/09/07/react-native%E4%BF%AE%E6%94%B9%E7%AC%AC%E4%B8%89%E6%96%B9%E5%8C%85/">https://liuios.github.io/2021/09/07/react-native%E4%BF%AE%E6%94%B9%E7%AC%AC%E4%B8%89%E6%96%B9%E5%8C%85/</a>
+            <a href="https://liuios.github.io/2024/02/21/Xcode-15-%E7%9A%84Library-iconv2-4-0not-found%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">https://liuios.github.io/2024/02/21/Xcode-15-%E7%9A%84Library-iconv2-4-0not-found%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</a>
         </p>
         
     </div>
  
-    <div class="post-footer__meta"><p>更新于 2023-10-26</p></div> 
-    <div class="post-entry__tags"><a href="/tags/react-native/" class="post-tags__link button"># react-native</a></div> 
+    <div class="post-footer__meta"><p>更新于 2024-02-21</p></div> 
+    <div class="post-entry__tags"><a href="/tags/iOS/" class="post-tags__link button"># iOS</a></div> 
 </article>
 
 
     <div class="nav">
         <div class="nav__prev">
             
-                <a href="/2021/09/07/Mac-sourcetree%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0ssh-key/" class="nav__link">
-                    <div>
-                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
-                    </div>
-                    <div>
-                        <div class="nav__label">
-                            Previous Post
-                        </div>
-                        <div class="nav__title">
-                            Mac sourcetree自动添加ssh key
-                        </div>
-                    </div>
-                </a>
-            
         </div>
         <div class="nav__next">
             
-                <a href="/2021/09/07/yarn%E7%9A%84%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="nav__link">
+                <a href="/2023/12/08/react-native%E4%BF%AE%E6%94%B9%E7%AC%AC%E4%B8%89%E6%96%B9%E5%8C%85/" class="nav__link">
                     <div>
                         <div class="nav__label">
                             Next Post
                         </div>
                         <div class="nav__title">
-                            yarn的常用命令
+                            react-native修改第三方包
                         </div>
                     </div>
                     <div>
@@ -250,7 +242,7 @@
 
 
 
-    <div class="post__comments content-card" id="comment">
+    <div class="post__comments post__with-toc content-card" id="comment">
         
     <h4>评论</h4>
     
@@ -293,7 +285,7 @@
     
         
         <p class="footer-copyright">
-            Copyright © 2023 <a href="/">宝生的博客</a>
+            Copyright © 2024 <a href="/">宝生的博客</a>
         </p>
     
     
