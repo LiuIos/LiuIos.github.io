@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>解决selenium调试每次打开新Chrome浏览器问题</title>
+      <link href="/2024/03/14/%E8%A7%A3%E5%86%B3selenium%E8%B0%83%E8%AF%95%E6%AF%8F%E6%AC%A1%E6%89%93%E5%BC%80%E6%96%B0Chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E9%97%AE%E9%A2%98/"/>
+      <url>/2024/03/14/%E8%A7%A3%E5%86%B3selenium%E8%B0%83%E8%AF%95%E6%AF%8F%E6%AC%A1%E6%89%93%E5%BC%80%E6%96%B0Chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h3><p>配置chrome</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open -e ~/.zshrc</span><br></pre></td></tr></table></figure><p>添加</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=&quot;/Applications/Google Chrome.app/Contents/MacOS:$PATH&quot;</span><br></pre></td></tr></table></figure><p>终端执行</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.zshrc</span><br></pre></td></tr></table></figure><p>然后执行</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x27;Google Chrome&#x27; --remote-debugging-port=9222 --user-data-dir=&quot;/Users/xiaota/Documents/google/seleium&quot;</span><br><span class="line">或</span><br><span class="line">Google\ Chrome --remote-debugging-port=9222 --user-data-dir=&quot;/Users/xiaota/Documents/google/seleium&quot;</span><br></pre></td></tr></table></figure><h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>添加环境变量 配置 chrome所在位置</p><p>终端执行</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chrome.exe --remote-debugging-port=9222 --user-data-dir=&quot;D:google/selenium&quot;</span><br></pre></td></tr></table></figure><h3 id="连接浏览器"><a href="#连接浏览器" class="headerlink" title="连接浏览器"></a>连接浏览器</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from selenium import webdriver</span><br><span class="line"> </span><br><span class="line">options = webdriver.ChromeOptions()</span><br><span class="line"> </span><br><span class="line">options.add_experimental_option(&quot;debuggerAddress&quot;, &quot;127.0.0.1:19222&quot;)</span><br><span class="line">driver = webdriver.Chrome(options=option)</span><br><span class="line">driver.get(&#x27;https://www.baidu.com&#x27;)</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Xcode 15 的Library &quot;iconv2.4.0&quot;not found问题解决办法</title>
       <link href="/2024/02/21/Xcode-15-%E7%9A%84Library-iconv2-4-0not-found%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
       <url>/2024/02/21/Xcode-15-%E7%9A%84Library-iconv2-4-0not-found%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>

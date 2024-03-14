@@ -31,30 +31,30 @@
     <!-- meta -->
 
 
-<title>Xcode 15 的Library &#34;iconv2.4.0&#34;not found问题解决办法 | 宝生的博客</title>
+<title>解决selenium调试每次打开新Chrome浏览器问题 | 宝生的博客</title>
 
 
-    <meta name="keywords" content="iOS, Blog,Hexo,Theme,刘宝生,LiuIos">
+    <meta name="keywords" content="测试, Blog,Hexo,Theme,刘宝生,LiuIos">
 
 
 
 
     <!-- OpenGraph -->
  
-    <meta name="description" content="1.首先在项目的targets 的build phases 移除iconv.2.4.0 2.然后在link binary witch libraries 添加 libiconv.tbd 和 libiconv.2.tbd 3.在项目的targets 的Other Linker Flags 添加-ld64">
+    <meta name="description" content="Mac配置chrome 1open -e ~&#x2F;.zshrc  添加 1export PATH&#x3D;&quot;&#x2F;Applications&#x2F;Google Chrome.app&#x2F;Contents&#x2F;MacOS:$PATH&quot;  终端执行 1source ~&#x2F;.zshrc  然后执行 123&amp;#x27;Google Chrome&amp;#x27; --remote-debugging-port&#x3D;9222 -">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Xcode 15 的Library &quot;iconv2.4.0&quot;not found问题解决办法">
-<meta property="og:url" content="https://liuios.github.io/2024/02/21/Xcode-15-%E7%9A%84Library-iconv2-4-0not-found%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/index.html">
+<meta property="og:title" content="解决selenium调试每次打开新Chrome浏览器问题">
+<meta property="og:url" content="https://liuios.github.io/2024/03/14/%E8%A7%A3%E5%86%B3selenium%E8%B0%83%E8%AF%95%E6%AF%8F%E6%AC%A1%E6%89%93%E5%BC%80%E6%96%B0Chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="宝生的博客">
-<meta property="og:description" content="1.首先在项目的targets 的build phases 移除iconv.2.4.0 2.然后在link binary witch libraries 添加 libiconv.tbd 和 libiconv.2.tbd 3.在项目的targets 的Other Linker Flags 添加-ld64">
+<meta property="og:description" content="Mac配置chrome 1open -e ~&#x2F;.zshrc  添加 1export PATH&#x3D;&quot;&#x2F;Applications&#x2F;Google Chrome.app&#x2F;Contents&#x2F;MacOS:$PATH&quot;  终端执行 1source ~&#x2F;.zshrc  然后执行 123&amp;#x27;Google Chrome&amp;#x27; --remote-debugging-port&#x3D;9222 -">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/202402211512531.png">
-<meta property="article:published_time" content="2024-02-21T07:10:02.000Z">
-<meta property="article:modified_time" content="2024-03-14T08:36:55.820Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/202403141638089.png">
+<meta property="article:published_time" content="2024-03-14T08:36:36.000Z">
+<meta property="article:modified_time" content="2024-03-14T08:44:43.597Z">
 <meta property="article:author" content="刘宝生">
-<meta property="article:tag" content="iOS">
+<meta property="article:tag" content="测试">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/202402211512531.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/202403141638089.png">
 
 
     
@@ -151,10 +151,10 @@
 
 <div class="post-title">
     <h1 class="post-title__text">
-        Xcode 15 的Library &#34;iconv2.4.0&#34;not found问题解决办法
+        解决selenium调试每次打开新Chrome浏览器问题
     </h1>
     <div class="post-title__meta">
-        <a href="/archives/2024/02/" class="post-meta__date button">2024-02-21</a>
+        <a href="/archives/2024/03/" class="post-meta__date button">2024-03-14</a>
         
     <span class="separate-dot"></span><a href="/categories/%E6%8A%80%E6%9C%AF/" class="button">技术</a>
 
@@ -173,7 +173,7 @@
 
     <aside class="post-side">
         <div class="post-side__toc">
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%A6%96%E5%85%88%E5%9C%A8%E9%A1%B9%E7%9B%AE%E7%9A%84targets-%E7%9A%84build-phases-%E7%A7%BB%E9%99%A4iconv-2-4-0"><span class="toc-text">1.首先在项目的targets 的build phases 移除iconv.2.4.0</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%84%B6%E5%90%8E%E5%9C%A8link-binary-witch-libraries-%E6%B7%BB%E5%8A%A0-libiconv-tbd-%E5%92%8C-libiconv-2-tbd"><span class="toc-text">2.然后在link binary witch libraries 添加 libiconv.tbd 和 libiconv.2.tbd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%9C%A8%E9%A1%B9%E7%9B%AE%E7%9A%84targets-%E7%9A%84Other-Linker-Flags-%E6%B7%BB%E5%8A%A0-ld64"><span class="toc-text">3.在项目的targets 的Other Linker Flags 添加-ld64</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Mac"><span class="toc-text">Mac</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows"><span class="toc-text">Windows</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E6%B5%8F%E8%A7%88%E5%99%A8"><span class="toc-text">连接浏览器</span></a></li></ol>
         </div>
     </aside>
     <a class="btn-toc button" id="btn-toc" tabindex="0">
@@ -183,20 +183,38 @@
     </a>
     <div class="toc-menus" id="toc-menus">
         <div class="toc-title">文章目录</div>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%A6%96%E5%85%88%E5%9C%A8%E9%A1%B9%E7%9B%AE%E7%9A%84targets-%E7%9A%84build-phases-%E7%A7%BB%E9%99%A4iconv-2-4-0"><span class="toc-text">1.首先在项目的targets 的build phases 移除iconv.2.4.0</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%84%B6%E5%90%8E%E5%9C%A8link-binary-witch-libraries-%E6%B7%BB%E5%8A%A0-libiconv-tbd-%E5%92%8C-libiconv-2-tbd"><span class="toc-text">2.然后在link binary witch libraries 添加 libiconv.tbd 和 libiconv.2.tbd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%9C%A8%E9%A1%B9%E7%9B%AE%E7%9A%84targets-%E7%9A%84Other-Linker-Flags-%E6%B7%BB%E5%8A%A0-ld64"><span class="toc-text">3.在项目的targets 的Other Linker Flags 添加-ld64</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Mac"><span class="toc-text">Mac</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows"><span class="toc-text">Windows</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E6%B5%8F%E8%A7%88%E5%99%A8"><span class="toc-text">连接浏览器</span></a></li></ol>
     </div>
 
 
 <article class="post post__with-toc content-card">
     <div class="post__header">
     
-        <div class="post-thumbnail" style="background-image: url('https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/202402211512531.png');"></div>
+        <div class="post-thumbnail" style="background-image: url('https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/202403141638089.png');"></div>
     
 </div>
     <div class="post__content">
-        <h3 id="1-首先在项目的targets-的build-phases-移除iconv-2-4-0"><a href="#1-首先在项目的targets-的build-phases-移除iconv-2-4-0" class="headerlink" title="1.首先在项目的targets 的build phases 移除iconv.2.4.0"></a>1.首先在项目的targets 的build phases 移除iconv.2.4.0</h3><p><img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/202402211514655.png"></p>
-<h3 id="2-然后在link-binary-witch-libraries-添加-libiconv-tbd-和-libiconv-2-tbd"><a href="#2-然后在link-binary-witch-libraries-添加-libiconv-tbd-和-libiconv-2-tbd" class="headerlink" title="2.然后在link binary witch libraries 添加 libiconv.tbd 和 libiconv.2.tbd"></a>2.然后在link binary witch libraries 添加 libiconv.tbd 和 libiconv.2.tbd</h3><p><img src="https://cdn.jsdelivr.net/gh/LiuIos/picBed@master/image-20240221151525420.png" alt="image-20240221151525420"></p>
-<h3 id="3-在项目的targets-的Other-Linker-Flags-添加-ld64"><a href="#3-在项目的targets-的Other-Linker-Flags-添加-ld64" class="headerlink" title="3.在项目的targets 的Other Linker Flags 添加-ld64"></a>3.在项目的targets 的Other Linker Flags 添加-ld64</h3>
+        <h3 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h3><p>配置chrome</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open -e ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<p>添加</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=&quot;/Applications/Google Chrome.app/Contents/MacOS:$PATH&quot;</span><br></pre></td></tr></table></figure>
+
+<p>终端执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<p>然后执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x27;Google Chrome&#x27; --remote-debugging-port=9222 --user-data-dir=&quot;/Users/xiaota/Documents/google/seleium&quot;</span><br><span class="line">或</span><br><span class="line">Google\ Chrome --remote-debugging-port=9222 --user-data-dir=&quot;/Users/xiaota/Documents/google/seleium&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>添加环境变量 配置 chrome所在位置</p>
+<p>终端执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chrome.exe --remote-debugging-port=9222 --user-data-dir=&quot;D:google/selenium&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="连接浏览器"><a href="#连接浏览器" class="headerlink" title="连接浏览器"></a>连接浏览器</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from selenium import webdriver</span><br><span class="line"> </span><br><span class="line">options = webdriver.ChromeOptions()</span><br><span class="line"> </span><br><span class="line">options.add_experimental_option(&quot;debuggerAddress&quot;, &quot;127.0.0.1:19222&quot;)</span><br><span class="line">driver = webdriver.Chrome(options=option)</span><br><span class="line">driver.get(&#x27;https://www.baidu.com&#x27;)</span><br></pre></td></tr></table></figure>
+
+
     </div>
     
     <div class="post__license">
@@ -207,43 +225,29 @@
             <strong>
                 本文链接：
             </strong>
-            <a href="https://liuios.github.io/2024/02/21/Xcode-15-%E7%9A%84Library-iconv2-4-0not-found%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">https://liuios.github.io/2024/02/21/Xcode-15-%E7%9A%84Library-iconv2-4-0not-found%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</a>
+            <a href="https://liuios.github.io/2024/03/14/%E8%A7%A3%E5%86%B3selenium%E8%B0%83%E8%AF%95%E6%AF%8F%E6%AC%A1%E6%89%93%E5%BC%80%E6%96%B0Chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E9%97%AE%E9%A2%98/">https://liuios.github.io/2024/03/14/%E8%A7%A3%E5%86%B3selenium%E8%B0%83%E8%AF%95%E6%AF%8F%E6%AC%A1%E6%89%93%E5%BC%80%E6%96%B0Chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E9%97%AE%E9%A2%98/</a>
         </p>
         
     </div>
  
     <div class="post-footer__meta"><p>更新于 2024-03-14</p></div> 
-    <div class="post-entry__tags"><a href="/tags/iOS/" class="post-tags__link button"># iOS</a></div> 
+    <div class="post-entry__tags"><a href="/tags/%E6%B5%8B%E8%AF%95/" class="post-tags__link button"># 测试</a></div> 
 </article>
 
 
     <div class="nav">
         <div class="nav__prev">
             
-                <a href="/2024/03/14/%E8%A7%A3%E5%86%B3selenium%E8%B0%83%E8%AF%95%E6%AF%8F%E6%AC%A1%E6%89%93%E5%BC%80%E6%96%B0Chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E9%97%AE%E9%A2%98/" class="nav__link">
-                    <div>
-                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
-                    </div>
-                    <div>
-                        <div class="nav__label">
-                            Previous Post
-                        </div>
-                        <div class="nav__title">
-                            解决selenium调试每次打开新Chrome浏览器问题
-                        </div>
-                    </div>
-                </a>
-            
         </div>
         <div class="nav__next">
             
-                <a href="/2023/12/08/react-native%E4%BF%AE%E6%94%B9%E7%AC%AC%E4%B8%89%E6%96%B9%E5%8C%85/" class="nav__link">
+                <a href="/2024/02/21/Xcode-15-%E7%9A%84Library-iconv2-4-0not-found%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" class="nav__link">
                     <div>
                         <div class="nav__label">
                             Next Post
                         </div>
                         <div class="nav__title">
-                            react-native修改第三方包
+                            Xcode 15 的Library &#34;iconv2.4.0&#34;not found问题解决办法
                         </div>
                     </div>
                     <div>
